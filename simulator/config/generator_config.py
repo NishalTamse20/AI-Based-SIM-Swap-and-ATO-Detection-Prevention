@@ -17,12 +17,18 @@ class GeneratorConfig:
     random_seed: int = 42
     paysim_path: Path = DEFAULT_PAYSIM_PATH
     output_path: Path = DEFAULT_OUTPUT_PATH
+    history_length: int = 5
+    history_window_days: int = 30
 
     def __post_init__(self) -> None:
         if self.scenario_count <= 0:
             raise ValueError("scenario_count must be greater than zero")
         if self.scenario_count % 5:
             raise ValueError("scenario_count must be divisible by 5 for a balanced distribution")
+        if self.history_length <= 0:
+            raise ValueError("history_length must be greater than zero")
+        if self.history_window_days <= 0:
+            raise ValueError("history_window_days must be greater than zero")
 
 
 if __name__ == "__main__":
@@ -33,9 +39,18 @@ if __name__ == "__main__":
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--paysim-path", type=Path, default=DEFAULT_PAYSIM_PATH)
     parser.add_argument("--output-path", type=Path, default=DEFAULT_OUTPUT_PATH)
+    parser.add_argument("--history-length", type=int, default=5)
+    parser.add_argument("--history-window-days", type=int, default=30)
     args = parser.parse_args()
     from simulator.generators.dataset_generator import generate_dataset
 
-    config = GeneratorConfig(args.scenario_count, args.seed, args.paysim_path, args.output_path)
+    config = GeneratorConfig(
+        scenario_count=args.scenario_count,
+        random_seed=args.seed,
+        paysim_path=args.paysim_path,
+        output_path=args.output_path,
+        history_length=args.history_length,
+        history_window_days=args.history_window_days,
+    )
     events = generate_dataset(config)
     print(f"Generated {len(events)} events from {config.scenario_count} scenarios at {config.output_path}")

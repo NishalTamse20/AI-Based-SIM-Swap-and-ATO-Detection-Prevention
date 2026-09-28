@@ -19,8 +19,8 @@ def test_schema_validity_and_configurable_size(tmp_path, paysim_fixture):
 
 
 def test_same_seed_generates_identical_events(tmp_path, paysim_fixture):
-    first = generate_dataset(GeneratorConfig(10, 42, paysim_fixture, tmp_path / "first.csv"))
-    second = generate_dataset(GeneratorConfig(10, 42, paysim_fixture, tmp_path / "second.csv"))
+    first = generate_dataset(GeneratorConfig(10, 42, paysim_fixture, tmp_path / "first.csv", 5, 30))
+    second = generate_dataset(GeneratorConfig(10, 42, paysim_fixture, tmp_path / "second.csv", 5, 30))
     assert first == second
 
 
@@ -29,3 +29,22 @@ def test_scenario_count_must_support_exact_balance():
 
     with pytest.raises(ValueError, match="divisible by 5"):
         GeneratorConfig(11)
+
+
+def test_history_length_and_window_are_configurable(tmp_path, paysim_fixture):
+    events = generate_dataset(GeneratorConfig(5, 42, paysim_fixture, tmp_path / "events.csv", 3, 10))
+    history_by_user = {}
+    trigger_by_user = {}
+    for event in events:
+        if event["event_category"] == "TELECOM":
+            trigger_by_user[event["user_id"]] = event["timestamp"]
+        if not event["scenario_type"]:
+            history_by_user.setdefault(event["user_id"], []).append(event)
+    assert all(len(history) == 6 for history in history_by_user.values())
+    assert len(history_by_user) == 5
+    from datetime import datetime, timedelta
+
+    for user_id, history in history_by_user.items():
+        trigger_time = datetime.fromisoformat(trigger_by_user[user_id])
+        assert all(trigger_time - datetime.fromisoformat(event["timestamp"]) <= timedelta(days=10)
+                   for event in history)

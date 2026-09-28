@@ -16,7 +16,7 @@ EVENT_FIELDS = (
 
 def make_event(
     *, event_id: str, user_id: str, account_id: str, event_category: str, event_type: str,
-    timestamp: datetime, device_id: str, scenario_type: str, ato_label: int,
+    timestamp: datetime, device_id: str, scenario_type: str | None, ato_label: int | None,
     status: str = "SUCCESS", channel: str | None = None, location: str | None = None,
     amount: str | None = None, beneficiary_id: str | None = None,
     transaction: dict[str, str] | None = None,
