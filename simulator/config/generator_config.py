@@ -1,0 +1,41 @@
+"""Configuration and defaults for Phase 4 dataset generation."""
+
+from dataclasses import dataclass
+from pathlib import Path
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_PAYSIM_PATH = PROJECT_ROOT / "data" / "raw" / "paysim" / "PS_20174392719_1491204439457_log.csv"
+DEFAULT_OUTPUT_PATH = PROJECT_ROOT / "data" / "synthetic" / "ato_synthetic_events.csv"
+
+
+@dataclass(frozen=True)
+class GeneratorConfig:
+    """Settings for reproducible synthetic scenario generation."""
+
+    scenario_count: int = 1000
+    random_seed: int = 42
+    paysim_path: Path = DEFAULT_PAYSIM_PATH
+    output_path: Path = DEFAULT_OUTPUT_PATH
+
+    def __post_init__(self) -> None:
+        if self.scenario_count <= 0:
+            raise ValueError("scenario_count must be greater than zero")
+        if self.scenario_count % 5:
+            raise ValueError("scenario_count must be divisible by 5 for a balanced distribution")
+
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Generate synthetic SIM/eSIM ATO scenario events.")
+    parser.add_argument("--scenario-count", type=int, default=1000)
+    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--paysim-path", type=Path, default=DEFAULT_PAYSIM_PATH)
+    parser.add_argument("--output-path", type=Path, default=DEFAULT_OUTPUT_PATH)
+    args = parser.parse_args()
+    from simulator.generators.dataset_generator import generate_dataset
+
+    config = GeneratorConfig(args.scenario_count, args.seed, args.paysim_path, args.output_path)
+    events = generate_dataset(config)
+    print(f"Generated {len(events)} events from {config.scenario_count} scenarios at {config.output_path}")

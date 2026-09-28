@@ -18,11 +18,12 @@ and are not treated as real customer identities.
 | Field | Type | Description |
 |---|---|---|
 | timestamp | datetime | Event time |
-| event_type | string | Unified event category |
+| event_category | string | Broad category of the event |
+| event_type | string | Specific event type within its category |
 | source | string | Event source |
 | status | string | Event outcome/status |
 
-Supported event_type values:
+Supported event_category values:
 
 - TELECOM
 - DEVICE
@@ -38,10 +39,10 @@ Supported event_type values:
 
 | Field | Type | Description |
 |---|---|---|
-| telecom_event | string | SIM/eSIM event |
+| event_type | string | SIM/eSIM event within the TELECOM category |
 | telecom_status | string | Event status |
 
-Supported telecom_event values:
+Supported TELECOM event_type values:
 
 - SIM_SWAP
 - SIM_REPLACEMENT
