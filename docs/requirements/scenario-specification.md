@@ -1,5 +1,9 @@
 # Scenario Specification
 
+## Shared Pre-trigger Baseline History
+
+Every scenario includes normal synthetic activity before its SIM/eSIM trigger. The development default is a 30-day pre-trigger window containing five successful LOGIN events and five successful TRANSACTION events. Historical activity uses the same known device and is generated independently of the post-trigger scenario and its ground-truth label. No post-trigger event is part of this history.
+
 ## Scenario 1 — Legitimate SIM Replacement
 
 SIM_REPLACEMENT

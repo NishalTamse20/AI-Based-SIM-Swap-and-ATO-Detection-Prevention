@@ -16,29 +16,48 @@ TRANSACTION_SCENARIOS = {"LEGITIMATE_SIM_REPLACEMENT", "SUSPICIOUS_SIM_REPLACEME
 
 
 def _append(events: list[dict[str, Any]], scenario_index: int, identity: dict[str, str],
-            scenario_type: str, label: int, category: str, event_type: str,
-            minutes: int, device_id: str, **kwargs: Any) -> None:
+            scenario_type: str | None, label: int | None, category: str, event_type: str,
+            minutes: int, device_id: str, timestamp: datetime | None = None, **kwargs: Any) -> None:
     events.append(make_event(
         event_id=f"EVT-{scenario_index:06d}-{len(events) + 1:02d}",
         user_id=identity["user_id"], account_id=identity["account_id"],
         event_category=category, event_type=event_type,
-        timestamp=datetime(2026, 1, 1) + timedelta(days=scenario_index, minutes=minutes),
+        timestamp=timestamp or datetime(2026, 1, 1) + timedelta(days=scenario_index, minutes=minutes),
         device_id=device_id, scenario_type=scenario_type, ato_label=label, **kwargs,
     ))
 
 
 def run_scenario(scenario_index: int, scenario_type: str,
-                 transaction: dict[str, str] | None = None) -> list[dict[str, Any]]:
+                 transaction: dict[str, str] | None = None,
+                 historical_transactions: list[dict[str, str]] | None = None,
+                 history_length: int = 5, history_window_days: int = 30) -> list[dict[str, Any]]:
     """Return one scenario's events, with scenario label defined by its template."""
     definitions = {name: (label, category, telecom_type) for name, label, category, telecom_type in SCENARIOS}
     if scenario_type not in definitions:
         raise ValueError(f"Unsupported scenario_type: {scenario_type}")
+    if historical_transactions is None or len(historical_transactions) != history_length:
+        raise ValueError("one historical PaySim transaction is required per history_length")
     label, _, telecom_type = definitions[scenario_type]
     identity = generate_identity(scenario_index)
     known = known_device_id(scenario_index)
     changed = new_device_id(scenario_index)
     is_legitimate = label == 0
     events: list[dict[str, Any]] = []
+    trigger_time = datetime(2026, 1, 1) + timedelta(days=scenario_index)
+
+    # History is identical in structure for every scenario and carries no future ground-truth label.
+    history_event_count = history_length * 2
+    for history_index in range(history_event_count):
+        fraction = history_index / history_event_count
+        history_time = trigger_time - timedelta(days=history_window_days * (1 - fraction))
+        is_login = history_index % 2 == 0
+        _append(
+            events, scenario_index, identity, None, None,
+            "AUTHENTICATION" if is_login else "TRANSACTION",
+            "LOGIN" if is_login else "TRANSACTION", 0, known,
+            timestamp=history_time,
+            transaction=None if is_login else historical_transactions[history_index // 2],
+        )
 
     _append(events, scenario_index, identity, scenario_type, label, "TELECOM", telecom_type, 0, known)
 
