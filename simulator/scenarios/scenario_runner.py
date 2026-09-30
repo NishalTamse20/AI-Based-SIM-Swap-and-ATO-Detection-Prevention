@@ -62,6 +62,26 @@ def run_scenario(scenario_index: int, scenario_type: str,
     _append(events, scenario_index, identity, scenario_type, label, "TELECOM", telecom_type, 0, known)
 
     if is_legitimate:
+        if scenario_type in {
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+        }:
+            _append(events, scenario_index, identity, scenario_type, label,
+                    "DEVICE", "NEW_DEVICE", 5, changed, status="EXPECTED")
+            _append(events, scenario_index, identity, scenario_type, label,
+                    "AUTHENTICATION", "FAILED_LOGIN", 8, changed, status="FAILURE")
+            if scenario_type == "LEGITIMATE_SIM_AUTH_RECOVERY":
+                _append(events, scenario_index, identity, scenario_type, label,
+                        "AUTHENTICATION", "FAILED_LOGIN", 10, changed, status="FAILURE")
+                reset_minute = 12
+            else:
+                reset_minute = 10
+            _append(events, scenario_index, identity, scenario_type, label,
+                    "RECOVERY", "PASSWORD_RESET", reset_minute, changed)
+            _append(events, scenario_index, identity, scenario_type, label,
+                    "AUTHENTICATION", "LOGIN", 15, changed, status="SUCCESS")
+            return events
         _append(events, scenario_index, identity, scenario_type, label, "AUTHENTICATION", "LOGIN", 10, known)
         if scenario_type == "LEGITIMATE_SIM_REPLACEMENT":
             _append(events, scenario_index, identity, scenario_type, label, "TRANSACTION", "TRANSACTION", 30, known, transaction=transaction)

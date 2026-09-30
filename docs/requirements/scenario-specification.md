@@ -48,6 +48,41 @@ SIM_SWAP or ESIM_CHANGE
 → abnormal behaviour
 → ato_label = 1
 
+## Scenario 6 — Legitimate SIM Replacement with Device Migration
+
+The synthetic user initiates an authorized SIM replacement and migrates to a new device.
+
+SIM_REPLACEMENT
+→ NEW_DEVICE
+→ FAILED_LOGIN
+→ PASSWORD_RESET
+→ successful LOGIN on the new device
+→ ato_label = 0
+
+## Scenario 7 — Legitimate eSIM Migration with Authentication Recovery
+
+The synthetic user initiates an authorized eSIM migration to a new device and completes authentication recovery.
+
+ESIM_CHANGE
+→ NEW_DEVICE
+→ FAILED_LOGIN
+→ PASSWORD_RESET
+→ successful LOGIN on the new device
+→ ato_label = 0
+
+## Scenario 8 — Legitimate SIM Change with Repeated Login Difficulty
+
+The synthetic user initiates an authorized SIM change, encounters repeated login failures, completes a password reset, and successfully logs in on the new device.
+
+SIM_SWAP
+→ NEW_DEVICE
+→ repeated FAILED_LOGIN events
+→ PASSWORD_RESET
+→ successful LOGIN on the new device
+→ ato_label = 0
+
+For Scenarios 6–8, events are generated in the listed order within the frozen T+15-minute prediction window. Their legitimate labels represent the explicitly authorized synthetic scenario, not the absence of suspicious events. Each retains the shared normal pre-trigger history above.
+
 ## Important Rule
 
 A SIM/eSIM event alone must never determine ato_label.

@@ -13,13 +13,13 @@ from simulator.generators.dataset_generator import generate_dataset
 
 
 def _events(tmp_path, paysim_fixture):
-    return generate_dataset(GeneratorConfig(5, 42, paysim_fixture, tmp_path / "events.csv"))
+    return generate_dataset(GeneratorConfig(8, 42, paysim_fixture, tmp_path / "events.csv"))
 
 
 def test_baseline_uses_only_rows_before_trigger(tmp_path, paysim_fixture):
     events = _events(tmp_path, paysim_fixture)
     profiles = build_baseline_profiles(events)
-    assert len(profiles) == 5
+    assert len(profiles) == 8
     for profile in profiles:
         assert profile["baseline_event_count"] == 10
         assert profile["successful_login_count"] == 5
@@ -29,7 +29,7 @@ def test_baseline_uses_only_rows_before_trigger(tmp_path, paysim_fixture):
         assert profile["baseline_start"] < profile["trigger_cutoff"]
         assert profile["transaction_amount_sum"] > 0
         assert "ato_label" not in profile and "scenario_type" not in profile
-    assert len({profile["account_id"] for profile in profiles}) == 5
+    assert len({profile["account_id"] for profile in profiles}) == 8
 
 
 def test_post_trigger_and_label_or_paysim_flag_changes_do_not_change_baseline(tmp_path, paysim_fixture):

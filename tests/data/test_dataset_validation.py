@@ -7,7 +7,7 @@ from simulator.validation.dataset_validator import validate_dataset
 
 def _make_dataset(tmp_path, paysim_fixture):
     path = tmp_path / "events.csv"
-    generate_dataset(GeneratorConfig(5, 42, paysim_fixture, path))
+    generate_dataset(GeneratorConfig(8, 42, paysim_fixture, path))
     return path
 
 
@@ -16,9 +16,9 @@ def test_generated_dataset_passes_validation(tmp_path, paysim_fixture):
     result = validate_dataset(path)
     assert result.is_valid, result.errors
     assert result.event_count > 0
-    assert result.user_count == 5
-    assert result.scenario_count == 5
-    assert result.history_event_count == 50
+    assert result.user_count == 8
+    assert result.scenario_count == 8
+    assert result.history_event_count == 80
 
 
 def test_validation_detects_duplicate_id_invalid_type_and_missing_required_value(tmp_path, paysim_fixture):
