@@ -16,7 +16,7 @@ from simulator.config.generator_config import GeneratorConfig
 from simulator.generators.dataset_generator import generate_dataset
 
 
-def _dataset(tmp_path, paysim_fixture, count=5):
+def _dataset(tmp_path, paysim_fixture, count=8):
     path = tmp_path / "events.csv"
     events = generate_dataset(GeneratorConfig(count, 42, paysim_fixture, path))
     profiles = build_baseline_profiles(events)
@@ -32,11 +32,11 @@ def test_expected_columns_and_row_count(tmp_path, paysim_fixture):
         writer.writerows(profiles)
     output_path = tmp_path / "features.csv"
     rows = generate_features(event_path, baseline_path, output_path)
-    assert len(rows) == 5
+    assert len(rows) == 8
     with output_path.open(newline="", encoding="utf-8") as source:
         reader = csv.DictReader(source)
         assert tuple(reader.fieldnames) == OUTPUT_COLUMNS
-        assert len(list(reader)) == 5
+        assert len(list(reader)) == 8
     assert len(FEATURE_COLUMNS) == 25
 
 
@@ -114,6 +114,33 @@ def test_fixed_cutoff_applies_uniformly_across_scenarios(tmp_path, paysim_fixtur
     assert by_type["SUSPICIOUS_SIM_REPLACEMENT"]["new_beneficiary"] == 0
     assert by_type["SUSPICIOUS_ESIM_CHANGE"]["device_deviation"] == 1
     assert by_type["SIM_ESIM_AUTH_ANOMALY"]["failed_login_count"] == 2
+
+
+def test_legitimate_unusual_scenarios_overlap_in_t15_features(tmp_path, paysim_fixture):
+    _, events, profiles = _dataset(tmp_path, paysim_fixture)
+    rows = build_feature_rows(events, profiles)
+    scenario_by_user = {
+        row["user_id"]: next(event["scenario_type"] for event in events
+                             if event["user_id"] == row["user_id"] and event["event_category"] == "TELECOM")
+        for row in rows
+    }
+    by_scenario = {scenario_by_user[row["user_id"]]: row for row in rows}
+
+    for scenario_type in (
+        "LEGITIMATE_SIM_DEVICE_RECOVERY",
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_AUTH_RECOVERY",
+    ):
+        row = by_scenario[scenario_type]
+        assert row["ato_label"] == 0
+        assert row["new_device"] == 1
+        assert row["known_device"] == 0
+        assert row["failed_login_count"] >= 1
+        assert row["authentication_anomaly"] == 1
+        assert row["password_reset"] == 1
+        assert row["baseline_event_count"] == 10
+        assert row["baseline_transaction_count"] == 5
+        assert row["baseline_successful_login_count"] == 5
 
 
 def test_feature_generation_is_reproducible(tmp_path, paysim_fixture):

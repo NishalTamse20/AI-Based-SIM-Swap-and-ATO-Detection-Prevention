@@ -23,8 +23,6 @@ class GeneratorConfig:
     def __post_init__(self) -> None:
         if self.scenario_count <= 0:
             raise ValueError("scenario_count must be greater than zero")
-        if self.scenario_count % 5:
-            raise ValueError("scenario_count must be divisible by 5 for a balanced distribution")
         if self.history_length <= 0:
             raise ValueError("history_length must be greater than zero")
         if self.history_window_days <= 0:

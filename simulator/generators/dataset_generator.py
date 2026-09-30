@@ -13,14 +13,16 @@ from simulator.scenarios.scenario_runner import SCENARIOS, SCENARIO_TYPES, TRANS
 
 def generate_dataset(config: GeneratorConfig) -> list[dict[str, Any]]:
     """Generate a balanced dataset of chronological scenario event rows."""
-    per_scenario = config.scenario_count // len(SCENARIO_TYPES)
+    complete_rounds, remainder = divmod(config.scenario_count, len(SCENARIO_TYPES))
     transaction_count = (
         config.scenario_count * config.history_length
-        + per_scenario * len(TRANSACTION_SCENARIOS)
+        + complete_rounds * len(TRANSACTION_SCENARIOS)
+        + sum(scenario in TRANSACTION_SCENARIOS for scenario in SCENARIO_TYPES[:remainder])
     )
     pay_sim_rows = iter(sample_transactions(config.paysim_path, transaction_count, config.random_seed))
 
-    schedule = [scenario_type for scenario_type in SCENARIO_TYPES for _ in range(per_scenario)]
+    schedule = list(SCENARIO_TYPES) * complete_rounds
+    schedule.extend(SCENARIO_TYPES[:remainder])
     random.Random(config.random_seed).shuffle(schedule)
     events: list[dict[str, Any]] = []
     for scenario_index, scenario_type in enumerate(schedule, start=1):

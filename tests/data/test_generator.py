@@ -24,11 +24,18 @@ def test_same_seed_generates_identical_events(tmp_path, paysim_fixture):
     assert first == second
 
 
-def test_scenario_count_must_support_exact_balance():
+def test_scenario_count_must_be_positive():
     import pytest
 
-    with pytest.raises(ValueError, match="divisible by 5"):
-        GeneratorConfig(11)
+    with pytest.raises(ValueError, match="greater than zero"):
+        GeneratorConfig(0)
+
+
+def test_scenario_distribution_is_balanced_when_count_is_not_a_multiple(tmp_path, paysim_fixture):
+    events = generate_dataset(GeneratorConfig(10, 42, paysim_fixture, tmp_path / "events.csv"))
+    counts = Counter(event["scenario_type"] for event in events if event["event_category"] == "TELECOM")
+    assert sum(counts.values()) == 10
+    assert max(counts.values()) - min(counts.values()) <= 1
 
 
 def test_history_length_and_window_are_configurable(tmp_path, paysim_fixture):
