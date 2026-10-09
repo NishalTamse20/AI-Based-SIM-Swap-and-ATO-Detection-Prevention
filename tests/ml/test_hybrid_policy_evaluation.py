@@ -16,6 +16,7 @@ from ml.models.hybrid_policy_evaluation import (
     run_hybrid_policy_evaluation,
 )
 from ml.rules.rule_baseline import AMBIGUOUS, ATO_RISK_INDICATOR, NO_INDICATOR
+from ml.models.hybrid_policy_evaluation import DEFAULT_TEMPORAL_PATH
 
 
 @pytest.mark.parametrize("rule,model,expected", [
@@ -132,7 +133,7 @@ def test_saved_fold_evaluation_exports_all_rows_deterministically(tmp_path):
                      "suspicious_sim_replacement_cases.csv", "run_metadata.json"):
         assert (tmp_path / "one" / filename).read_bytes() == (tmp_path / "two" / filename).read_bytes()
     assert len(pd.read_csv(tmp_path / "one" / "suspicious_sim_replacement_cases.csv")) == 125
-    source_temporal = pd.read_csv("data/processed/temporal_features.csv")
+    source_temporal = pd.read_csv(DEFAULT_TEMPORAL_PATH)
     exported = pd.read_csv(tmp_path / "one" / "predictions.csv")
     null_fields = ["time_to_new_device_seconds", "time_to_failed_login_seconds",
                    "time_to_password_reset_seconds", "time_to_recovery_seconds",
