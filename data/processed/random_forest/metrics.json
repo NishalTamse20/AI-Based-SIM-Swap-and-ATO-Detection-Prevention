@@ -1,0 +1,189 @@
+{
+  "device_deviation_ablation": {
+    "delta_ablated_minus_full": {
+      "f1": -0.013071895424836666,
+      "fnr": 0.013333333333333336,
+      "fpr": 0.007999999999999993,
+      "pr_auc_average_precision": 7.873239974642843e-05,
+      "precision": -0.012820512820512775,
+      "recall": -0.013333333333333308,
+      "roc_auc": 5.3333333333349664e-05
+    },
+    "removed_feature": "device_deviation",
+    "test_metrics": {
+      "class_counts": {
+        "0": 125,
+        "1": 75
+      },
+      "confusion_matrix": [
+        [
+          112,
+          13
+        ],
+        [
+          10,
+          65
+        ]
+      ],
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "f1": 0.8496732026143791,
+      "fn": 10,
+      "fnr": 0.13333333333333333,
+      "fp": 13,
+      "fpr": 0.104,
+      "n": 200,
+      "pr_auc_average_precision": 0.9602472682911889,
+      "precision": 0.8333333333333334,
+      "recall": 0.8666666666666667,
+      "roc_auc": 0.9744,
+      "tn": 112,
+      "tp": 65
+    }
+  },
+  "phase7_comparison_same_test_rows": {
+    "multi_signal_ambiguity_rate": 0.47,
+    "multi_signal_ambiguous_count": 94,
+    "multi_signal_coverage": 0.53,
+    "multi_signal_metrics_on_determinate_rows": {
+      "class_counts": {
+        "0": 52,
+        "1": 54
+      },
+      "confusion_matrix": [
+        [
+          52,
+          0
+        ],
+        [
+          0,
+          54
+        ]
+      ],
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "fnr": 0.0,
+      "fp": 0,
+      "fpr": 0.0,
+      "n": 106,
+      "pr_auc_average_precision": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "tn": 52,
+      "tp": 54
+    },
+    "multi_signal_outcome_counts": {
+      "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 94,
+      "ATO_RISK_INDICATOR": 54,
+      "NO_ATO_RISK_INDICATOR": 52
+    },
+    "random_forest_metrics_on_same_determinate_rows": {
+      "class_counts": {
+        "0": 52,
+        "1": 54
+      },
+      "confusion_matrix": [
+        [
+          52,
+          0
+        ],
+        [
+          0,
+          54
+        ]
+      ],
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "fnr": 0.0,
+      "fp": 0,
+      "fpr": 0.0,
+      "n": 106,
+      "pr_auc_average_precision": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "tn": 52,
+      "tp": 54
+    },
+    "telecom_context_all_test_rows": {
+      "class_counts": {
+        "0": 125,
+        "1": 75
+      },
+      "confusion_matrix": [
+        [
+          125,
+          0
+        ],
+        [
+          75,
+          0
+        ]
+      ],
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "f1": 0.0,
+      "fn": 75,
+      "fnr": 1.0,
+      "fp": 0,
+      "fpr": 0.0,
+      "n": 200,
+      "pr_auc_average_precision": 0.375,
+      "precision": null,
+      "recall": 0.0,
+      "roc_auc": 0.5,
+      "tn": 125,
+      "tp": 0
+    }
+  },
+  "primary_test": {
+    "class_counts": {
+      "0": 125,
+      "1": 75
+    },
+    "confusion_matrix": [
+      [
+        113,
+        12
+      ],
+      [
+        9,
+        66
+      ]
+    ],
+    "confusion_matrix_labels": [
+      0,
+      1
+    ],
+    "f1": 0.8627450980392157,
+    "fn": 9,
+    "fnr": 0.12,
+    "fp": 12,
+    "fpr": 0.096,
+    "n": 200,
+    "pr_auc_average_precision": 0.9601685358914425,
+    "precision": 0.8461538461538461,
+    "recall": 0.88,
+    "roc_auc": 0.9743466666666667,
+    "tn": 113,
+    "tp": 66
+  },
+  "target_definition": {
+    "column": "ato_label",
+    "negative_class": 0,
+    "positive_class": 1
+  }
+}
