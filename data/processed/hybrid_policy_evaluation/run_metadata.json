@@ -1,0 +1,295 @@
+{
+  "expected_replacement_rows": 125,
+  "experiment": "Phase 10.3 hybrid policy evaluation",
+  "fold_assignments": [
+    {
+      "held_out_scenario_type": "LEGITIMATE_ESIM_CHANGE",
+      "test_rows": 125,
+      "test_scenario_types": [
+        "LEGITIMATE_ESIM_CHANGE"
+      ],
+      "train_rows": 875,
+      "train_scenario_types": [
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_AUTH_RECOVERY",
+        "LEGITIMATE_SIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_REPLACEMENT",
+        "SIM_ESIM_AUTH_ANOMALY",
+        "SUSPICIOUS_ESIM_CHANGE",
+        "SUSPICIOUS_SIM_REPLACEMENT"
+      ]
+    },
+    {
+      "held_out_scenario_type": "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+      "test_rows": 125,
+      "test_scenario_types": [
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY"
+      ],
+      "train_rows": 875,
+      "train_scenario_types": [
+        "LEGITIMATE_ESIM_CHANGE",
+        "LEGITIMATE_SIM_AUTH_RECOVERY",
+        "LEGITIMATE_SIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_REPLACEMENT",
+        "SIM_ESIM_AUTH_ANOMALY",
+        "SUSPICIOUS_ESIM_CHANGE",
+        "SUSPICIOUS_SIM_REPLACEMENT"
+      ]
+    },
+    {
+      "held_out_scenario_type": "LEGITIMATE_SIM_AUTH_RECOVERY",
+      "test_rows": 125,
+      "test_scenario_types": [
+        "LEGITIMATE_SIM_AUTH_RECOVERY"
+      ],
+      "train_rows": 875,
+      "train_scenario_types": [
+        "LEGITIMATE_ESIM_CHANGE",
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_REPLACEMENT",
+        "SIM_ESIM_AUTH_ANOMALY",
+        "SUSPICIOUS_ESIM_CHANGE",
+        "SUSPICIOUS_SIM_REPLACEMENT"
+      ]
+    },
+    {
+      "held_out_scenario_type": "LEGITIMATE_SIM_DEVICE_RECOVERY",
+      "test_rows": 125,
+      "test_scenario_types": [
+        "LEGITIMATE_SIM_DEVICE_RECOVERY"
+      ],
+      "train_rows": 875,
+      "train_scenario_types": [
+        "LEGITIMATE_ESIM_CHANGE",
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_AUTH_RECOVERY",
+        "LEGITIMATE_SIM_REPLACEMENT",
+        "SIM_ESIM_AUTH_ANOMALY",
+        "SUSPICIOUS_ESIM_CHANGE",
+        "SUSPICIOUS_SIM_REPLACEMENT"
+      ]
+    },
+    {
+      "held_out_scenario_type": "LEGITIMATE_SIM_REPLACEMENT",
+      "test_rows": 125,
+      "test_scenario_types": [
+        "LEGITIMATE_SIM_REPLACEMENT"
+      ],
+      "train_rows": 875,
+      "train_scenario_types": [
+        "LEGITIMATE_ESIM_CHANGE",
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_AUTH_RECOVERY",
+        "LEGITIMATE_SIM_DEVICE_RECOVERY",
+        "SIM_ESIM_AUTH_ANOMALY",
+        "SUSPICIOUS_ESIM_CHANGE",
+        "SUSPICIOUS_SIM_REPLACEMENT"
+      ]
+    },
+    {
+      "held_out_scenario_type": "SIM_ESIM_AUTH_ANOMALY",
+      "test_rows": 125,
+      "test_scenario_types": [
+        "SIM_ESIM_AUTH_ANOMALY"
+      ],
+      "train_rows": 875,
+      "train_scenario_types": [
+        "LEGITIMATE_ESIM_CHANGE",
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_AUTH_RECOVERY",
+        "LEGITIMATE_SIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_REPLACEMENT",
+        "SUSPICIOUS_ESIM_CHANGE",
+        "SUSPICIOUS_SIM_REPLACEMENT"
+      ]
+    },
+    {
+      "held_out_scenario_type": "SUSPICIOUS_ESIM_CHANGE",
+      "test_rows": 125,
+      "test_scenario_types": [
+        "SUSPICIOUS_ESIM_CHANGE"
+      ],
+      "train_rows": 875,
+      "train_scenario_types": [
+        "LEGITIMATE_ESIM_CHANGE",
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_AUTH_RECOVERY",
+        "LEGITIMATE_SIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_REPLACEMENT",
+        "SIM_ESIM_AUTH_ANOMALY",
+        "SUSPICIOUS_SIM_REPLACEMENT"
+      ]
+    },
+    {
+      "held_out_scenario_type": "SUSPICIOUS_SIM_REPLACEMENT",
+      "test_rows": 125,
+      "test_scenario_types": [
+        "SUSPICIOUS_SIM_REPLACEMENT"
+      ],
+      "train_rows": 875,
+      "train_scenario_types": [
+        "LEGITIMATE_ESIM_CHANGE",
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_AUTH_RECOVERY",
+        "LEGITIMATE_SIM_DEVICE_RECOVERY",
+        "LEGITIMATE_SIM_REPLACEMENT",
+        "SIM_ESIM_AUTH_ANOMALY",
+        "SUSPICIOUS_ESIM_CHANGE"
+      ]
+    }
+  ],
+  "fold_count": 8,
+  "input_row_counts": {
+    "Phase 6 features": 1000,
+    "Phase 9 temporal features": 1000,
+    "Phase 9B ALL_TEMPORAL predictions": 1000,
+    "Phase 9B BASELINE predictions": 1000,
+    "unseen-scenario predictions": 1000
+  },
+  "input_sha256": {
+    "phase6_features": "4f8e864fe56311810f698042ec3bb3759ff40dd232b2ad4fa708484cc72e7a28",
+    "phase8_phase9_unseen_metadata": "67a19b10abb7f077e645bd60bd4388fef230316c410eacbb188364df9820e69e",
+    "phase8_phase9_unseen_predictions": "1a10119c48df8c62ed5b6d295ff98edfffc1738079126b02a8e6d995f53c2a83",
+    "phase9_temporal_features": "454d6e1d6234737d8ad95b671f7504baf7239e9320c63f1f701d49f271a6caac",
+    "phase9b_ablation_metadata": "a77cd956a7e3ae47d4b9424d4a6118cd32aa6aae5df198a9a10143b0def59c19",
+    "phase9b_ablation_predictions": "d446bac79b269406e87f993335f508394ba2ba1835916daa162b0be069e040d4"
+  },
+  "metric_convention": "For determinate-case evaluation only, risk-indicator outcomes map to 1 and NO_ATO_RISK_INDICATOR maps to 0. This is not a legitimate-account classification.",
+  "model_fitting": false,
+  "output_schemas": {
+    "predictions.csv": [
+      "user_id",
+      "account_id",
+      "event_id",
+      "phase7_prediction",
+      "phase7_matched_rules",
+      "phase7_feature_evidence",
+      "phase7_explanation",
+      "phase8_prediction",
+      "phase8_probability_ato",
+      "phase9_prediction",
+      "phase9_probability_ato",
+      "policy_1_outcome",
+      "policy_1_error",
+      "policy_2_outcome",
+      "policy_2_error",
+      "actual_label_evaluation_only",
+      "scenario_type_evaluation_only",
+      "held_out_scenario_type",
+      "phase8_error",
+      "phase9_error",
+      "time_to_new_device_seconds",
+      "time_to_failed_login_seconds",
+      "time_to_password_reset_seconds",
+      "time_to_recovery_seconds",
+      "time_to_auth_anomaly_seconds",
+      "post_trigger_failed_login_count",
+      "post_trigger_device_event_count",
+      "post_trigger_recovery_event_count",
+      "telecom_to_device_sequence",
+      "telecom_to_auth_sequence",
+      "telecom_to_recovery_sequence",
+      "device_before_auth_sequence",
+      "auth_before_recovery_sequence"
+    ],
+    "suspicious_sim_replacement_cases.csv": [
+      "user_id",
+      "account_id",
+      "event_id",
+      "actual_label_evaluation_only",
+      "scenario_type_evaluation_only",
+      "held_out_scenario_type",
+      "phase7_prediction",
+      "phase7_matched_rules",
+      "phase8_prediction",
+      "phase8_probability_ato",
+      "phase8_error",
+      "phase9_prediction",
+      "phase9_probability_ato",
+      "phase9_error",
+      "policy_1_outcome",
+      "policy_1_error",
+      "policy_2_outcome",
+      "policy_2_error"
+    ]
+  },
+  "phase9_preprocessing": "median imputer with missingness indicators fit separately on each training fold; raw temporal CSV missingness retained",
+  "phase9_replacement_failure": {
+    "phase9_false_negatives": 125,
+    "rows": 125,
+    "scenario_type": "SUSPICIOUS_SIM_REPLACEMENT"
+  },
+  "phase9b_all_temporal_matches_phase9_model_b": true,
+  "policy_definitions": {
+    "POLICY_1_RF_LED": {
+      "decision_table": {
+        "AMBIGUOUS_INSUFFICIENT_EVIDENCE": {
+          "0": "AMBIGUOUS_INSUFFICIENT_EVIDENCE",
+          "1": "AMBIGUOUS_INSUFFICIENT_EVIDENCE",
+          "MISSING": "AMBIGUOUS_INSUFFICIENT_EVIDENCE"
+        },
+        "ATO_RISK_INDICATOR": {
+          "0": "CONFLICTING_EVIDENCE",
+          "1": "ATO_RISK_INDICATOR",
+          "MISSING": "INSUFFICIENT_EVIDENCE"
+        },
+        "NO_ATO_RISK_INDICATOR": {
+          "0": "NO_ATO_RISK_INDICATOR",
+          "1": "MODEL_ONLY_RISK_INDICATOR",
+          "MISSING": "INSUFFICIENT_EVIDENCE"
+        },
+        "RULE_MISSING": {
+          "0": "INSUFFICIENT_EVIDENCE",
+          "1": "INSUFFICIENT_EVIDENCE",
+          "MISSING": "INSUFFICIENT_EVIDENCE"
+        }
+      }
+    },
+    "POLICY_2_RULE_CORROBORATION": {
+      "decision_table": {
+        "AMBIGUOUS_INSUFFICIENT_EVIDENCE": {
+          "0": "AMBIGUOUS_INSUFFICIENT_EVIDENCE",
+          "1": "AMBIGUOUS_INSUFFICIENT_EVIDENCE",
+          "MISSING": "AMBIGUOUS_INSUFFICIENT_EVIDENCE"
+        },
+        "ATO_RISK_INDICATOR": {
+          "0": "CONFLICTING_EVIDENCE",
+          "1": "ATO_RISK_INDICATOR",
+          "MISSING": "INSUFFICIENT_EVIDENCE"
+        },
+        "NO_ATO_RISK_INDICATOR": {
+          "0": "NO_ATO_RISK_INDICATOR",
+          "1": "AMBIGUOUS_INSUFFICIENT_EVIDENCE",
+          "MISSING": "INSUFFICIENT_EVIDENCE"
+        },
+        "RULE_MISSING": {
+          "0": "INSUFFICIENT_EVIDENCE",
+          "1": "INSUFFICIENT_EVIDENCE",
+          "MISSING": "INSUFFICIENT_EVIDENCE"
+        }
+      }
+    }
+  },
+  "prediction_threshold": "saved RandomForestClassifier predict output; no custom threshold",
+  "random_forest_parameters": {
+    "bootstrap": true,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "n_estimators": 100,
+    "n_jobs": -1,
+    "random_state": 42
+  },
+  "replacement_rows_exported": 125,
+  "row_count": 1000,
+  "target_and_scenario_usage": "ato_label and scenario metadata are attached only after policy outcomes are constructed; evaluation metadata only",
+  "unique_key": [
+    "user_id",
+    "account_id",
+    "event_id"
+  ]
+}
