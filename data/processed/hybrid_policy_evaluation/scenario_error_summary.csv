@@ -1,0 +1,9 @@
+scenario_type_evaluation_only,rows,legitimate_count,suspicious_count,phase8_false_positives,phase8_false_negatives,phase9_false_positives,phase9_false_negatives,policy_1_coverage,policy_1_determinate_count,policy_1_false_positives,policy_1_false_negatives,policy_1_errors,policy_1_ambiguous,policy_1_conflicting,policy_1_insufficient,policy_2_coverage,policy_2_determinate_count,policy_2_false_positives,policy_2_false_negatives,policy_2_errors,policy_2_ambiguous,policy_2_conflicting,policy_2_insufficient
+LEGITIMATE_ESIM_CHANGE,125,125,0,0,0,0,0,1.0,125,0,0,0,0,0,0,1.0,125,0,0,0,0,0,0
+LEGITIMATE_ESIM_DEVICE_RECOVERY,125,125,0,84,0,0,0,0.0,0,0,0,0,125,0,0,0.0,0,0,0,0,125,0,0
+LEGITIMATE_SIM_AUTH_RECOVERY,125,125,0,88,0,0,0,0.0,0,0,0,0,125,0,0,0.0,0,0,0,0,125,0,0
+LEGITIMATE_SIM_DEVICE_RECOVERY,125,125,0,125,0,0,0,0.0,0,0,0,0,125,0,0,0.0,0,0,0,0,125,0,0
+LEGITIMATE_SIM_REPLACEMENT,125,125,0,0,0,0,0,1.0,125,0,0,0,0,0,0,1.0,125,0,0,0,0,0,0
+SIM_ESIM_AUTH_ANOMALY,125,0,125,0,95,0,0,1.0,125,0,0,0,0,0,0,1.0,125,0,0,0,0,0,0
+SUSPICIOUS_ESIM_CHANGE,125,0,125,0,0,0,0,1.0,125,0,0,0,0,0,0,1.0,125,0,0,0,0,0,0
+SUSPICIOUS_SIM_REPLACEMENT,125,0,125,0,125,0,125,0.0,0,0,0,0,125,0,0,0.0,0,0,0,0,125,0,0

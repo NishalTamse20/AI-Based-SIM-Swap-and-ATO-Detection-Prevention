@@ -1,0 +1,998 @@
+{
+  "evaluation": "fixed policies over existing eight-fold leave-one-scenario-type-out predictions",
+  "fold_metric_limitation": "Each held-out scenario fold contains one class; per-fold ROC-AUC is undefined. Pooled OOF probabilities come from separately fit fold models, are not calibrated, and may not share comparable scales. Pooled AUC/AP are descriptive only.",
+  "full_set_reference_metrics": {
+    "model_a_phase8": {
+      "class_counts": {
+        "0": 625,
+        "1": 375
+      },
+      "confusion_matrix": [
+        [
+          328,
+          297
+        ],
+        [
+          220,
+          155
+        ]
+      ],
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "f1": 0.37484885126964934,
+      "fn": 220,
+      "fnr": 0.5866666666666667,
+      "fp": 297,
+      "fpr": 0.4752,
+      "n": 1000,
+      "pr_auc_average_precision": 0.3320434937757857,
+      "precision": 0.34292035398230086,
+      "recall": 0.41333333333333333,
+      "roc_auc": 0.3632128,
+      "tn": 328,
+      "tp": 155
+    },
+    "model_b_phase9": {
+      "class_counts": {
+        "0": 625,
+        "1": 375
+      },
+      "confusion_matrix": [
+        [
+          625,
+          0
+        ],
+        [
+          125,
+          250
+        ]
+      ],
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "f1": 0.8,
+      "fn": 125,
+      "fnr": 0.3333333333333333,
+      "fp": 0,
+      "fpr": 0.0,
+      "n": 1000,
+      "pr_auc_average_precision": 1.0,
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "roc_auc": 1.0,
+      "tn": 625,
+      "tp": 250
+    }
+  },
+  "phase9_note": "Model B already includes Phase 8 inputs plus the 13 Phase 9 temporal features; it is the sole learned policy signal.",
+  "policies": {
+    "POLICY_1_RF_LED": {
+      "coverage": 0.5,
+      "coverage_definition": "determinate policy outcomes divided by all expected joined rows",
+      "determinate_count": 500,
+      "determinate_metrics": {
+        "auc_note": "Policy emits categorical outcomes, not a continuous score.",
+        "average_precision": null,
+        "confusion_matrix": [
+          [
+            250,
+            0
+          ],
+          [
+            0,
+            250
+          ]
+        ],
+        "confusion_matrix_labels": [
+          0,
+          1
+        ],
+        "f1": 1.0,
+        "fn": 0,
+        "fnr": 0.0,
+        "fp": 0,
+        "fpr": 0.0,
+        "n": 500,
+        "precision": 1.0,
+        "recall": 1.0,
+        "roc_auc": null,
+        "tn": 250,
+        "tp": 250
+      },
+      "metric_mapping": "For determinate-case evaluation only, risk-indicator outcomes map to 1 and NO_ATO_RISK_INDICATOR maps to 0. This is not a legitimate-account classification.",
+      "outcome_counts_and_label_composition": {
+        "AMBIGUOUS_INSUFFICIENT_EVIDENCE": {
+          "actual_label_counts": {
+            "0": 375,
+            "1": 125
+          },
+          "count": 500
+        },
+        "ATO_RISK_INDICATOR": {
+          "actual_label_counts": {
+            "0": 0,
+            "1": 250
+          },
+          "count": 250
+        },
+        "NO_ATO_RISK_INDICATOR": {
+          "actual_label_counts": {
+            "0": 250,
+            "1": 0
+          },
+          "count": 250
+        }
+      },
+      "per_scenario_type": {
+        "LEGITIMATE_ESIM_CHANGE": {
+          "coverage": 1.0,
+          "determinate_metrics": {
+            "auc_note": "Policy emits categorical outcomes, not a continuous score.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "determinate_rows": 125,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 0,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY": {
+          "coverage": 0.0,
+          "determinate_metrics": {
+            "auc_note": "No determinate rows are available for this subset.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": null,
+            "n": 0,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "determinate_rows": 0,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 125,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "LEGITIMATE_SIM_AUTH_RECOVERY": {
+          "coverage": 0.0,
+          "determinate_metrics": {
+            "auc_note": "No determinate rows are available for this subset.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": null,
+            "n": 0,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "determinate_rows": 0,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 125,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "LEGITIMATE_SIM_DEVICE_RECOVERY": {
+          "coverage": 0.0,
+          "determinate_metrics": {
+            "auc_note": "No determinate rows are available for this subset.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": null,
+            "n": 0,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "determinate_rows": 0,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 125,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "LEGITIMATE_SIM_REPLACEMENT": {
+          "coverage": 1.0,
+          "determinate_metrics": {
+            "auc_note": "Policy emits categorical outcomes, not a continuous score.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "determinate_rows": 125,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 0,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "SIM_ESIM_AUTH_ANOMALY": {
+          "coverage": 1.0,
+          "determinate_metrics": {
+            "auc_note": "Policy emits categorical outcomes, not a continuous score.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                125
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fnr": 0.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "precision": 1.0,
+            "recall": 1.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 125
+          },
+          "determinate_rows": 125,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 0,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "SUSPICIOUS_ESIM_CHANGE": {
+          "coverage": 1.0,
+          "determinate_metrics": {
+            "auc_note": "Policy emits categorical outcomes, not a continuous score.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                125
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fnr": 0.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "precision": 1.0,
+            "recall": 1.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 125
+          },
+          "determinate_rows": 125,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 0,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "SUSPICIOUS_SIM_REPLACEMENT": {
+          "coverage": 0.0,
+          "determinate_metrics": {
+            "auc_note": "No determinate rows are available for this subset.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": null,
+            "n": 0,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "determinate_rows": 0,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 125,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        }
+      },
+      "reference_model_metrics_on_same_determinate_subset": {
+        "model_a_phase8": {
+          "class_counts": {
+            "0": 250,
+            "1": 250
+          },
+          "confusion_matrix": [
+            [
+              250,
+              0
+            ],
+            [
+              95,
+              155
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.7654320987654321,
+          "fn": 95,
+          "fnr": 0.38,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 500,
+          "pr_auc_average_precision": 1.0,
+          "precision": 1.0,
+          "recall": 0.62,
+          "roc_auc": 1.0,
+          "tn": 250,
+          "tp": 155
+        },
+        "model_b_phase9": {
+          "class_counts": {
+            "0": 250,
+            "1": 250
+          },
+          "confusion_matrix": [
+            [
+              250,
+              0
+            ],
+            [
+              0,
+              250
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 1.0,
+          "fn": 0,
+          "fnr": 0.0,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 500,
+          "pr_auc_average_precision": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": 1.0,
+          "tn": 250,
+          "tp": 250
+        }
+      },
+      "row_count": 1000,
+      "uncertain_counts": {
+        "AMBIGUOUS_INSUFFICIENT_EVIDENCE": {
+          "actual_label_counts": {
+            "0": 375,
+            "1": 125
+          },
+          "count": 500
+        },
+        "CONFLICTING_EVIDENCE": {
+          "actual_label_counts": {
+            "0": 0,
+            "1": 0
+          },
+          "count": 0
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "actual_label_counts": {
+            "0": 0,
+            "1": 0
+          },
+          "count": 0
+        }
+      }
+    },
+    "POLICY_2_RULE_CORROBORATION": {
+      "coverage": 0.5,
+      "coverage_definition": "determinate policy outcomes divided by all expected joined rows",
+      "determinate_count": 500,
+      "determinate_metrics": {
+        "auc_note": "Policy emits categorical outcomes, not a continuous score.",
+        "average_precision": null,
+        "confusion_matrix": [
+          [
+            250,
+            0
+          ],
+          [
+            0,
+            250
+          ]
+        ],
+        "confusion_matrix_labels": [
+          0,
+          1
+        ],
+        "f1": 1.0,
+        "fn": 0,
+        "fnr": 0.0,
+        "fp": 0,
+        "fpr": 0.0,
+        "n": 500,
+        "precision": 1.0,
+        "recall": 1.0,
+        "roc_auc": null,
+        "tn": 250,
+        "tp": 250
+      },
+      "metric_mapping": "For determinate-case evaluation only, risk-indicator outcomes map to 1 and NO_ATO_RISK_INDICATOR maps to 0. This is not a legitimate-account classification.",
+      "outcome_counts_and_label_composition": {
+        "AMBIGUOUS_INSUFFICIENT_EVIDENCE": {
+          "actual_label_counts": {
+            "0": 375,
+            "1": 125
+          },
+          "count": 500
+        },
+        "ATO_RISK_INDICATOR": {
+          "actual_label_counts": {
+            "0": 0,
+            "1": 250
+          },
+          "count": 250
+        },
+        "NO_ATO_RISK_INDICATOR": {
+          "actual_label_counts": {
+            "0": 250,
+            "1": 0
+          },
+          "count": 250
+        }
+      },
+      "per_scenario_type": {
+        "LEGITIMATE_ESIM_CHANGE": {
+          "coverage": 1.0,
+          "determinate_metrics": {
+            "auc_note": "Policy emits categorical outcomes, not a continuous score.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "determinate_rows": 125,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 0,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY": {
+          "coverage": 0.0,
+          "determinate_metrics": {
+            "auc_note": "No determinate rows are available for this subset.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": null,
+            "n": 0,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "determinate_rows": 0,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 125,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "LEGITIMATE_SIM_AUTH_RECOVERY": {
+          "coverage": 0.0,
+          "determinate_metrics": {
+            "auc_note": "No determinate rows are available for this subset.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": null,
+            "n": 0,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "determinate_rows": 0,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 125,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "LEGITIMATE_SIM_DEVICE_RECOVERY": {
+          "coverage": 0.0,
+          "determinate_metrics": {
+            "auc_note": "No determinate rows are available for this subset.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": null,
+            "n": 0,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "determinate_rows": 0,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 125,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "LEGITIMATE_SIM_REPLACEMENT": {
+          "coverage": 1.0,
+          "determinate_metrics": {
+            "auc_note": "Policy emits categorical outcomes, not a continuous score.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "determinate_rows": 125,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 0,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "SIM_ESIM_AUTH_ANOMALY": {
+          "coverage": 1.0,
+          "determinate_metrics": {
+            "auc_note": "Policy emits categorical outcomes, not a continuous score.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                125
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fnr": 0.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "precision": 1.0,
+            "recall": 1.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 125
+          },
+          "determinate_rows": 125,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 0,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "SUSPICIOUS_ESIM_CHANGE": {
+          "coverage": 1.0,
+          "determinate_metrics": {
+            "auc_note": "Policy emits categorical outcomes, not a continuous score.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                125
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fnr": 0.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "precision": 1.0,
+            "recall": 1.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 125
+          },
+          "determinate_rows": 125,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 0,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        },
+        "SUSPICIOUS_SIM_REPLACEMENT": {
+          "coverage": 0.0,
+          "determinate_metrics": {
+            "auc_note": "No determinate rows are available for this subset.",
+            "average_precision": null,
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": null,
+            "n": 0,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "determinate_rows": 0,
+          "rows": 125,
+          "uncertain_outcome_counts": {
+            "AMBIGUOUS_INSUFFICIENT_EVIDENCE": 125,
+            "CONFLICTING_EVIDENCE": 0,
+            "INSUFFICIENT_EVIDENCE": 0
+          }
+        }
+      },
+      "reference_model_metrics_on_same_determinate_subset": {
+        "model_a_phase8": {
+          "class_counts": {
+            "0": 250,
+            "1": 250
+          },
+          "confusion_matrix": [
+            [
+              250,
+              0
+            ],
+            [
+              95,
+              155
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.7654320987654321,
+          "fn": 95,
+          "fnr": 0.38,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 500,
+          "pr_auc_average_precision": 1.0,
+          "precision": 1.0,
+          "recall": 0.62,
+          "roc_auc": 1.0,
+          "tn": 250,
+          "tp": 155
+        },
+        "model_b_phase9": {
+          "class_counts": {
+            "0": 250,
+            "1": 250
+          },
+          "confusion_matrix": [
+            [
+              250,
+              0
+            ],
+            [
+              0,
+              250
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 1.0,
+          "fn": 0,
+          "fnr": 0.0,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 500,
+          "pr_auc_average_precision": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": 1.0,
+          "tn": 250,
+          "tp": 250
+        }
+      },
+      "row_count": 1000,
+      "uncertain_counts": {
+        "AMBIGUOUS_INSUFFICIENT_EVIDENCE": {
+          "actual_label_counts": {
+            "0": 375,
+            "1": 125
+          },
+          "count": 500
+        },
+        "CONFLICTING_EVIDENCE": {
+          "actual_label_counts": {
+            "0": 0,
+            "1": 0
+          },
+          "count": 0
+        },
+        "INSUFFICIENT_EVIDENCE": {
+          "actual_label_counts": {
+            "0": 0,
+            "1": 0
+          },
+          "count": 0
+        }
+      }
+    }
+  },
+  "row_count": 1000
+}
