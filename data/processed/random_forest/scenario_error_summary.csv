@@ -1,0 +1,9 @@
+scenario_type_evaluation_only,test_rows,actual_legitimate,actual_suspicious,rf_tp,rf_fp,rf_tn,rf_fn,rf_error_count,phase7_multi_signal_ambiguous,phase7_multi_signal_determinate,phase7_multi_signal_errors_on_determinate
+LEGITIMATE_ESIM_CHANGE,24,24,0,0,0,24,0,0,0,24,0
+LEGITIMATE_ESIM_DEVICE_RECOVERY,29,29,0,0,0,29,0,0,29,0,0
+LEGITIMATE_SIM_AUTH_RECOVERY,22,22,0,0,0,22,0,0,22,0,0
+LEGITIMATE_SIM_DEVICE_RECOVERY,22,22,0,0,12,10,0,12,22,0,0
+LEGITIMATE_SIM_REPLACEMENT,28,28,0,0,0,28,0,0,0,28,0
+SIM_ESIM_AUTH_ANOMALY,25,0,25,25,0,0,0,0,0,25,0
+SUSPICIOUS_ESIM_CHANGE,29,0,29,29,0,0,0,0,0,29,0
+SUSPICIOUS_SIM_REPLACEMENT,21,0,21,12,0,0,9,9,21,0,0

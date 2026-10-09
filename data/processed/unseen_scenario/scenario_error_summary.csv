@@ -1,0 +1,9 @@
+scenario_type_evaluation_only,test_rows,legitimate_count,suspicious_count,model_a_false_positives,model_a_false_negatives,model_a_correct_predictions,model_a_errors,model_b_false_positives,model_b_false_negatives,model_b_correct_predictions,model_b_errors
+LEGITIMATE_ESIM_CHANGE,125,125,0,0,0,125,0,0,0,125,0
+LEGITIMATE_ESIM_DEVICE_RECOVERY,125,125,0,84,0,41,84,0,0,125,0
+LEGITIMATE_SIM_AUTH_RECOVERY,125,125,0,88,0,37,88,0,0,125,0
+LEGITIMATE_SIM_DEVICE_RECOVERY,125,125,0,125,0,0,125,0,0,125,0
+LEGITIMATE_SIM_REPLACEMENT,125,125,0,0,0,125,0,0,0,125,0
+SIM_ESIM_AUTH_ANOMALY,125,0,125,0,95,30,95,0,0,125,0
+SUSPICIOUS_ESIM_CHANGE,125,0,125,0,0,125,0,0,0,125,0
+SUSPICIOUS_SIM_REPLACEMENT,125,0,125,0,125,0,125,0,125,0,125

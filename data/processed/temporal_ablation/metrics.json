@@ -1,0 +1,3896 @@
+{
+  "experiments": {
+    "ALL_TEMPORAL": {
+      "feature_columns": [
+        "sim_change",
+        "esim_change",
+        "telecom_event_present",
+        "new_device",
+        "device_change",
+        "device_deviation",
+        "known_device",
+        "failed_login_count",
+        "authentication_anomaly",
+        "password_reset",
+        "account_recovery",
+        "recovery_event_present",
+        "new_beneficiary",
+        "account_change",
+        "baseline_event_count",
+        "baseline_event_frequency",
+        "baseline_transaction_count",
+        "baseline_transaction_amount_mean",
+        "baseline_transaction_amount_min",
+        "baseline_transaction_amount_max",
+        "baseline_successful_login_count",
+        "time_to_new_device_seconds",
+        "time_to_failed_login_seconds",
+        "time_to_password_reset_seconds",
+        "time_to_recovery_seconds",
+        "time_to_auth_anomaly_seconds",
+        "post_trigger_failed_login_count",
+        "post_trigger_device_event_count",
+        "post_trigger_recovery_event_count",
+        "telecom_to_device_sequence",
+        "telecom_to_auth_sequence",
+        "telecom_to_recovery_sequence",
+        "device_before_auth_sequence",
+        "auth_before_recovery_sequence"
+      ],
+      "folds": [
+        {
+          "fold_number": 0,
+          "held_out_scenario_type": "LEGITIMATE_ESIM_CHANGE",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 1,
+          "held_out_scenario_type": "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 2,
+          "held_out_scenario_type": "LEGITIMATE_SIM_AUTH_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_AUTH_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 3,
+          "held_out_scenario_type": "LEGITIMATE_SIM_DEVICE_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_DEVICE_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 4,
+          "held_out_scenario_type": "LEGITIMATE_SIM_REPLACEMENT",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_REPLACEMENT"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 5,
+          "held_out_scenario_type": "SIM_ESIM_AUTH_ANOMALY",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                125
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fnr": 0.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 125
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SIM_ESIM_AUTH_ANOMALY"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 6,
+          "held_out_scenario_type": "SUSPICIOUS_ESIM_CHANGE",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                125
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fnr": 0.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 125
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SUSPICIOUS_ESIM_CHANGE"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 7,
+          "held_out_scenario_type": "SUSPICIOUS_SIM_REPLACEMENT",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                125,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 125,
+            "fnr": 1.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": null,
+            "recall": 0.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE"
+          ]
+        }
+      ],
+      "per_scenario_type": {
+        "LEGITIMATE_ESIM_CHANGE": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_AUTH_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_DEVICE_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_REPLACEMENT": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "SIM_ESIM_AUTH_ANOMALY": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              125
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 1.0,
+          "fn": 0,
+          "fnr": 0.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 125
+        },
+        "SUSPICIOUS_ESIM_CHANGE": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              125
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 1.0,
+          "fn": 0,
+          "fnr": 0.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 125
+        },
+        "SUSPICIOUS_SIM_REPLACEMENT": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              125,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 125,
+          "fnr": 1.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": null,
+          "recall": 0.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 0
+        }
+      },
+      "pooled_out_of_fold": {
+        "class_counts": {
+          "0": 625,
+          "1": 375
+        },
+        "confusion_matrix": [
+          [
+            625,
+            0
+          ],
+          [
+            125,
+            250
+          ]
+        ],
+        "confusion_matrix_labels": [
+          0,
+          1
+        ],
+        "f1": 0.8,
+        "fn": 125,
+        "fnr": 0.3333333333333333,
+        "fp": 0,
+        "fpr": 0.0,
+        "n": 1000,
+        "pr_auc_average_precision": 1.0,
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "roc_auc": 1.0,
+        "tn": 625,
+        "tp": 250
+      }
+    },
+    "BASELINE": {
+      "feature_columns": [
+        "sim_change",
+        "esim_change",
+        "telecom_event_present",
+        "new_device",
+        "device_change",
+        "device_deviation",
+        "known_device",
+        "failed_login_count",
+        "authentication_anomaly",
+        "password_reset",
+        "account_recovery",
+        "recovery_event_present",
+        "new_beneficiary",
+        "account_change",
+        "baseline_event_count",
+        "baseline_event_frequency",
+        "baseline_transaction_count",
+        "baseline_transaction_amount_mean",
+        "baseline_transaction_amount_min",
+        "baseline_transaction_amount_max",
+        "baseline_successful_login_count"
+      ],
+      "folds": [
+        {
+          "fold_number": 0,
+          "held_out_scenario_type": "LEGITIMATE_ESIM_CHANGE",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 1,
+          "held_out_scenario_type": "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                41,
+                84
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 0,
+            "fnr": null,
+            "fp": 84,
+            "fpr": 0.672,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": 0.0,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 41,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 2,
+          "held_out_scenario_type": "LEGITIMATE_SIM_AUTH_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                37,
+                88
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 0,
+            "fnr": null,
+            "fp": 88,
+            "fpr": 0.704,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": 0.0,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 37,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_AUTH_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 3,
+          "held_out_scenario_type": "LEGITIMATE_SIM_DEVICE_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                0,
+                125
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 0,
+            "fnr": null,
+            "fp": 125,
+            "fpr": 1.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": 0.0,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_DEVICE_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 4,
+          "held_out_scenario_type": "LEGITIMATE_SIM_REPLACEMENT",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_REPLACEMENT"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 5,
+          "held_out_scenario_type": "SIM_ESIM_AUTH_ANOMALY",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                95,
+                30
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.3870967741935484,
+            "fn": 95,
+            "fnr": 0.76,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": 1.0,
+            "recall": 0.24,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 30
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SIM_ESIM_AUTH_ANOMALY"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 6,
+          "held_out_scenario_type": "SUSPICIOUS_ESIM_CHANGE",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                125
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fnr": 0.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 125
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SUSPICIOUS_ESIM_CHANGE"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 7,
+          "held_out_scenario_type": "SUSPICIOUS_SIM_REPLACEMENT",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                125,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 125,
+            "fnr": 1.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": null,
+            "recall": 0.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE"
+          ]
+        }
+      ],
+      "per_scenario_type": {
+        "LEGITIMATE_ESIM_CHANGE": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              41,
+              84
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 0,
+          "fnr": null,
+          "fp": 84,
+          "fpr": 0.672,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": 0.0,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 41,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_AUTH_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              37,
+              88
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 0,
+          "fnr": null,
+          "fp": 88,
+          "fpr": 0.704,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": 0.0,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 37,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_DEVICE_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              0,
+              125
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 0,
+          "fnr": null,
+          "fp": 125,
+          "fpr": 1.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": 0.0,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_REPLACEMENT": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "SIM_ESIM_AUTH_ANOMALY": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              95,
+              30
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.3870967741935484,
+          "fn": 95,
+          "fnr": 0.76,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": 1.0,
+          "recall": 0.24,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 30
+        },
+        "SUSPICIOUS_ESIM_CHANGE": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              125
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 1.0,
+          "fn": 0,
+          "fnr": 0.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 125
+        },
+        "SUSPICIOUS_SIM_REPLACEMENT": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              125,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 125,
+          "fnr": 1.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": null,
+          "recall": 0.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 0
+        }
+      },
+      "pooled_out_of_fold": {
+        "class_counts": {
+          "0": 625,
+          "1": 375
+        },
+        "confusion_matrix": [
+          [
+            328,
+            297
+          ],
+          [
+            220,
+            155
+          ]
+        ],
+        "confusion_matrix_labels": [
+          0,
+          1
+        ],
+        "f1": 0.37484885126964934,
+        "fn": 220,
+        "fnr": 0.5866666666666667,
+        "fp": 297,
+        "fpr": 0.4752,
+        "n": 1000,
+        "pr_auc_average_precision": 0.3320434937757857,
+        "precision": 0.34292035398230086,
+        "recall": 0.41333333333333333,
+        "roc_auc": 0.3632128,
+        "tn": 328,
+        "tp": 155
+      }
+    },
+    "COUNTS": {
+      "feature_columns": [
+        "sim_change",
+        "esim_change",
+        "telecom_event_present",
+        "new_device",
+        "device_change",
+        "device_deviation",
+        "known_device",
+        "failed_login_count",
+        "authentication_anomaly",
+        "password_reset",
+        "account_recovery",
+        "recovery_event_present",
+        "new_beneficiary",
+        "account_change",
+        "baseline_event_count",
+        "baseline_event_frequency",
+        "baseline_transaction_count",
+        "baseline_transaction_amount_mean",
+        "baseline_transaction_amount_min",
+        "baseline_transaction_amount_max",
+        "baseline_successful_login_count",
+        "post_trigger_failed_login_count",
+        "post_trigger_device_event_count",
+        "post_trigger_recovery_event_count"
+      ],
+      "folds": [
+        {
+          "fold_number": 0,
+          "held_out_scenario_type": "LEGITIMATE_ESIM_CHANGE",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 1,
+          "held_out_scenario_type": "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                42,
+                83
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 0,
+            "fnr": null,
+            "fp": 83,
+            "fpr": 0.664,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": 0.0,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 42,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 2,
+          "held_out_scenario_type": "LEGITIMATE_SIM_AUTH_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                40,
+                85
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 0,
+            "fnr": null,
+            "fp": 85,
+            "fpr": 0.68,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": 0.0,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 40,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_AUTH_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 3,
+          "held_out_scenario_type": "LEGITIMATE_SIM_DEVICE_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                0,
+                125
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 0,
+            "fnr": null,
+            "fp": 125,
+            "fpr": 1.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": 0.0,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_DEVICE_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 4,
+          "held_out_scenario_type": "LEGITIMATE_SIM_REPLACEMENT",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_REPLACEMENT"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 5,
+          "held_out_scenario_type": "SIM_ESIM_AUTH_ANOMALY",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                125,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 125,
+            "fnr": 1.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": null,
+            "recall": 0.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SIM_ESIM_AUTH_ANOMALY"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 6,
+          "held_out_scenario_type": "SUSPICIOUS_ESIM_CHANGE",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                125
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fnr": 0.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 125
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SUSPICIOUS_ESIM_CHANGE"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 7,
+          "held_out_scenario_type": "SUSPICIOUS_SIM_REPLACEMENT",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                125,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 125,
+            "fnr": 1.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": null,
+            "recall": 0.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE"
+          ]
+        }
+      ],
+      "per_scenario_type": {
+        "LEGITIMATE_ESIM_CHANGE": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              42,
+              83
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 0,
+          "fnr": null,
+          "fp": 83,
+          "fpr": 0.664,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": 0.0,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 42,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_AUTH_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              40,
+              85
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 0,
+          "fnr": null,
+          "fp": 85,
+          "fpr": 0.68,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": 0.0,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 40,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_DEVICE_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              0,
+              125
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 0,
+          "fnr": null,
+          "fp": 125,
+          "fpr": 1.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": 0.0,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_REPLACEMENT": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "SIM_ESIM_AUTH_ANOMALY": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              125,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 125,
+          "fnr": 1.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": null,
+          "recall": 0.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 0
+        },
+        "SUSPICIOUS_ESIM_CHANGE": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              125
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 1.0,
+          "fn": 0,
+          "fnr": 0.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 125
+        },
+        "SUSPICIOUS_SIM_REPLACEMENT": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              125,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 125,
+          "fnr": 1.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": null,
+          "recall": 0.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 0
+        }
+      },
+      "pooled_out_of_fold": {
+        "class_counts": {
+          "0": 625,
+          "1": 375
+        },
+        "confusion_matrix": [
+          [
+            332,
+            293
+          ],
+          [
+            250,
+            125
+          ]
+        ],
+        "confusion_matrix_labels": [
+          0,
+          1
+        ],
+        "f1": 0.31525851197982346,
+        "fn": 250,
+        "fnr": 0.6666666666666666,
+        "fp": 293,
+        "fpr": 0.4688,
+        "n": 1000,
+        "pr_auc_average_precision": 0.3538685009024904,
+        "precision": 0.29904306220095694,
+        "recall": 0.3333333333333333,
+        "roc_auc": 0.36369280000000004,
+        "tn": 332,
+        "tp": 125
+      }
+    },
+    "SEQUENCES": {
+      "feature_columns": [
+        "sim_change",
+        "esim_change",
+        "telecom_event_present",
+        "new_device",
+        "device_change",
+        "device_deviation",
+        "known_device",
+        "failed_login_count",
+        "authentication_anomaly",
+        "password_reset",
+        "account_recovery",
+        "recovery_event_present",
+        "new_beneficiary",
+        "account_change",
+        "baseline_event_count",
+        "baseline_event_frequency",
+        "baseline_transaction_count",
+        "baseline_transaction_amount_mean",
+        "baseline_transaction_amount_min",
+        "baseline_transaction_amount_max",
+        "baseline_successful_login_count",
+        "telecom_to_device_sequence",
+        "telecom_to_auth_sequence",
+        "telecom_to_recovery_sequence",
+        "device_before_auth_sequence",
+        "auth_before_recovery_sequence"
+      ],
+      "folds": [
+        {
+          "fold_number": 0,
+          "held_out_scenario_type": "LEGITIMATE_ESIM_CHANGE",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 1,
+          "held_out_scenario_type": "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                44,
+                81
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 0,
+            "fnr": null,
+            "fp": 81,
+            "fpr": 0.648,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": 0.0,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 44,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 2,
+          "held_out_scenario_type": "LEGITIMATE_SIM_AUTH_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                45,
+                80
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 0,
+            "fnr": null,
+            "fp": 80,
+            "fpr": 0.64,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": 0.0,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 45,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_AUTH_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 3,
+          "held_out_scenario_type": "LEGITIMATE_SIM_DEVICE_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                0,
+                125
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 0,
+            "fnr": null,
+            "fp": 125,
+            "fpr": 1.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": 0.0,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_DEVICE_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 4,
+          "held_out_scenario_type": "LEGITIMATE_SIM_REPLACEMENT",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_REPLACEMENT"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 5,
+          "held_out_scenario_type": "SIM_ESIM_AUTH_ANOMALY",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                125
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fnr": 0.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 125
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SIM_ESIM_AUTH_ANOMALY"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 6,
+          "held_out_scenario_type": "SUSPICIOUS_ESIM_CHANGE",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                125
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fnr": 0.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 125
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SUSPICIOUS_ESIM_CHANGE"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 7,
+          "held_out_scenario_type": "SUSPICIOUS_SIM_REPLACEMENT",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                125,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 125,
+            "fnr": 1.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": null,
+            "recall": 0.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE"
+          ]
+        }
+      ],
+      "per_scenario_type": {
+        "LEGITIMATE_ESIM_CHANGE": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              44,
+              81
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 0,
+          "fnr": null,
+          "fp": 81,
+          "fpr": 0.648,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": 0.0,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 44,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_AUTH_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              45,
+              80
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 0,
+          "fnr": null,
+          "fp": 80,
+          "fpr": 0.64,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": 0.0,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 45,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_DEVICE_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              0,
+              125
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 0,
+          "fnr": null,
+          "fp": 125,
+          "fpr": 1.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": 0.0,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_REPLACEMENT": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "SIM_ESIM_AUTH_ANOMALY": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              125
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 1.0,
+          "fn": 0,
+          "fnr": 0.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 125
+        },
+        "SUSPICIOUS_ESIM_CHANGE": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              125
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 1.0,
+          "fn": 0,
+          "fnr": 0.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 125
+        },
+        "SUSPICIOUS_SIM_REPLACEMENT": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              125,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 125,
+          "fnr": 1.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": null,
+          "recall": 0.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 0
+        }
+      },
+      "pooled_out_of_fold": {
+        "class_counts": {
+          "0": 625,
+          "1": 375
+        },
+        "confusion_matrix": [
+          [
+            339,
+            286
+          ],
+          [
+            125,
+            250
+          ]
+        ],
+        "confusion_matrix_labels": [
+          0,
+          1
+        ],
+        "f1": 0.5488474204171241,
+        "fn": 125,
+        "fnr": 0.3333333333333333,
+        "fp": 286,
+        "fpr": 0.4576,
+        "n": 1000,
+        "pr_auc_average_precision": 0.37931546063064614,
+        "precision": 0.4664179104477612,
+        "recall": 0.6666666666666666,
+        "roc_auc": 0.4353237333333333,
+        "tn": 339,
+        "tp": 250
+      }
+    },
+    "TIMING": {
+      "feature_columns": [
+        "sim_change",
+        "esim_change",
+        "telecom_event_present",
+        "new_device",
+        "device_change",
+        "device_deviation",
+        "known_device",
+        "failed_login_count",
+        "authentication_anomaly",
+        "password_reset",
+        "account_recovery",
+        "recovery_event_present",
+        "new_beneficiary",
+        "account_change",
+        "baseline_event_count",
+        "baseline_event_frequency",
+        "baseline_transaction_count",
+        "baseline_transaction_amount_mean",
+        "baseline_transaction_amount_min",
+        "baseline_transaction_amount_max",
+        "baseline_successful_login_count",
+        "time_to_new_device_seconds",
+        "time_to_failed_login_seconds",
+        "time_to_password_reset_seconds",
+        "time_to_recovery_seconds",
+        "time_to_auth_anomaly_seconds"
+      ],
+      "folds": [
+        {
+          "fold_number": 0,
+          "held_out_scenario_type": "LEGITIMATE_ESIM_CHANGE",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 1,
+          "held_out_scenario_type": "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 2,
+          "held_out_scenario_type": "LEGITIMATE_SIM_AUTH_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_AUTH_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 3,
+          "held_out_scenario_type": "LEGITIMATE_SIM_DEVICE_RECOVERY",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_DEVICE_RECOVERY"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 4,
+          "held_out_scenario_type": "LEGITIMATE_SIM_REPLACEMENT",
+          "metrics": {
+            "class_counts": {
+              "0": 125,
+              "1": 0
+            },
+            "confusion_matrix": [
+              [
+                125,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": null,
+            "fn": 0,
+            "fnr": null,
+            "fp": 0,
+            "fpr": 0.0,
+            "n": 125,
+            "pr_auc_average_precision": null,
+            "precision": null,
+            "recall": null,
+            "roc_auc": null,
+            "tn": 125,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "0": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "LEGITIMATE_SIM_REPLACEMENT"
+          ],
+          "train_class_counts": {
+            "0": 500,
+            "1": 375
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 5,
+          "held_out_scenario_type": "SIM_ESIM_AUTH_ANOMALY",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                125
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fnr": 0.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 125
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SIM_ESIM_AUTH_ANOMALY"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SUSPICIOUS_ESIM_CHANGE",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 6,
+          "held_out_scenario_type": "SUSPICIOUS_ESIM_CHANGE",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                125
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 1.0,
+            "fn": 0,
+            "fnr": 0.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 125
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SUSPICIOUS_ESIM_CHANGE"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ]
+        },
+        {
+          "fold_number": 7,
+          "held_out_scenario_type": "SUSPICIOUS_SIM_REPLACEMENT",
+          "metrics": {
+            "class_counts": {
+              "0": 0,
+              "1": 125
+            },
+            "confusion_matrix": [
+              [
+                0,
+                0
+              ],
+              [
+                125,
+                0
+              ]
+            ],
+            "confusion_matrix_labels": [
+              0,
+              1
+            ],
+            "f1": 0.0,
+            "fn": 125,
+            "fnr": 1.0,
+            "fp": 0,
+            "fpr": null,
+            "n": 125,
+            "pr_auc_average_precision": 1.0,
+            "precision": null,
+            "recall": 0.0,
+            "roc_auc": null,
+            "tn": 0,
+            "tp": 0
+          },
+          "test_class_counts": {
+            "1": 125
+          },
+          "test_rows": 125,
+          "test_scenario_types": [
+            "SUSPICIOUS_SIM_REPLACEMENT"
+          ],
+          "train_class_counts": {
+            "0": 625,
+            "1": 250
+          },
+          "train_rows": 875,
+          "train_scenario_types": [
+            "LEGITIMATE_ESIM_CHANGE",
+            "LEGITIMATE_ESIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_AUTH_RECOVERY",
+            "LEGITIMATE_SIM_DEVICE_RECOVERY",
+            "LEGITIMATE_SIM_REPLACEMENT",
+            "SIM_ESIM_AUTH_ANOMALY",
+            "SUSPICIOUS_ESIM_CHANGE"
+          ]
+        }
+      ],
+      "per_scenario_type": {
+        "LEGITIMATE_ESIM_CHANGE": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "LEGITIMATE_ESIM_DEVICE_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_AUTH_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_DEVICE_RECOVERY": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "LEGITIMATE_SIM_REPLACEMENT": {
+          "class_counts": {
+            "0": 125,
+            "1": 0
+          },
+          "confusion_matrix": [
+            [
+              125,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": null,
+          "fn": 0,
+          "fnr": null,
+          "fp": 0,
+          "fpr": 0.0,
+          "n": 125,
+          "pr_auc_average_precision": null,
+          "precision": null,
+          "recall": null,
+          "roc_auc": null,
+          "tn": 125,
+          "tp": 0
+        },
+        "SIM_ESIM_AUTH_ANOMALY": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              125
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 1.0,
+          "fn": 0,
+          "fnr": 0.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 125
+        },
+        "SUSPICIOUS_ESIM_CHANGE": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              125
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 1.0,
+          "fn": 0,
+          "fnr": 0.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 125
+        },
+        "SUSPICIOUS_SIM_REPLACEMENT": {
+          "class_counts": {
+            "0": 0,
+            "1": 125
+          },
+          "confusion_matrix": [
+            [
+              0,
+              0
+            ],
+            [
+              125,
+              0
+            ]
+          ],
+          "confusion_matrix_labels": [
+            0,
+            1
+          ],
+          "f1": 0.0,
+          "fn": 125,
+          "fnr": 1.0,
+          "fp": 0,
+          "fpr": null,
+          "n": 125,
+          "pr_auc_average_precision": 1.0,
+          "precision": null,
+          "recall": 0.0,
+          "roc_auc": null,
+          "tn": 0,
+          "tp": 0
+        }
+      },
+      "pooled_out_of_fold": {
+        "class_counts": {
+          "0": 625,
+          "1": 375
+        },
+        "confusion_matrix": [
+          [
+            625,
+            0
+          ],
+          [
+            125,
+            250
+          ]
+        ],
+        "confusion_matrix_labels": [
+          0,
+          1
+        ],
+        "f1": 0.8,
+        "fn": 125,
+        "fnr": 0.3333333333333333,
+        "fp": 0,
+        "fpr": 0.0,
+        "n": 1000,
+        "pr_auc_average_precision": 1.0,
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "roc_auc": 1.0,
+        "tn": 625,
+        "tp": 250
+      }
+    }
+  },
+  "metric_definitions": "class 1 is suspicious; confusion matrix labels are [0, 1]"
+}
