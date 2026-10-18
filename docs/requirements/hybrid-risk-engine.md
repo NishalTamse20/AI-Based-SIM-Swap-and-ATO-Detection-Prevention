@@ -1,6 +1,6 @@
 # Phase 10.1 — Hybrid Risk Engine Specification
 
-**Status:** design proposal only; no engine, score, risk levels, or action policy is implemented by this document.
+**Status:** Phase 10 remains a research specification; Phase 11.1 implements only a downstream evidence explainer and conservative simulated response mapper. No numeric score or calibrated risk level is implemented.
 
 ## Purpose and scope
 
@@ -66,3 +66,43 @@ A future implementation should record the input snapshot/window, missingness, ru
 Tests should cover schema and identifier traceability; T+15 cutoff; target/scenario/PaySim exclusion; rule ambiguity preservation; missing and contradictory signals; deterministic scoring; calibration behavior if introduced; frozen level boundaries; action mapping; and no double counting. Evaluate every policy on the same unseen-scenario folds, including the SUSPICIOUS_SIM_REPLACEMENT failure.
 
 Evidence remains limited to synthetic templates. Current scenario types are label-pure, temporal profiles strongly reflect template construction, and Phase 9 missed 125 suspicious SIM-replacement cases. Calibration, score boundaries, hybrid-policy benefit, action costs, and generalization to real users are unresolved. No causal or real-world effectiveness claim is supported.
+
+## Phase 11.1 implemented behavior
+
+`ml.risk.explainable_response.build_explainable_response` accepts an explicit
+record from the Phase 10.2 evidence assembler. It keeps rule, model, temporal,
+and provenance fields separate, emits stable reason codes, and rejects records
+whose component-derived evidence status is inconsistent. It does not read the
+saved experiment CSVs or provide model serving.
+
+| Assembled evidence | Explainable outcome | Simulated recommendation |
+|---|---|---|
+| Rule `ATO_RISK_INDICATOR` and model prediction `1` | `CORROBORATED_RISK_INDICATOR` | Protect/Security Review |
+| Rule `NO_ATO_RISK_INDICATOR` and model prediction `1` | `MODEL_ONLY_RISK_INDICATOR` | Step-Up Authentication |
+| Rule `NO_ATO_RISK_INDICATOR` and model prediction `0` | `NO_ATO_RISK_INDICATOR` | No recommendation |
+| Rule `AMBIGUOUS_INSUFFICIENT_EVIDENCE` | `AMBIGUOUS` | No recommendation |
+| Rule risk indicator and model prediction `0` | `CONFLICTING_EVIDENCE` | No recommendation |
+| Required rule, model, or temporal component missing | `INSUFFICIENT_EVIDENCE` | No recommendation |
+
+These mappings are deterministic prototype design choices, not validated
+security actions. The absence of a configured rule indicator or a negative
+model prediction is not a legitimacy finding, so no `Allow`/normal-access
+recommendation is inferred. An ambiguous rule remains ambiguous even when the
+model predicts risk. Missing temporal components and individual missing
+temporal values remain explicit and are not treated as safe evidence. Temporal
+features are not added as another vote because Phase 9 Model B already uses
+them.
+
+Each output retains component evidence and provenance, includes reason codes
+for the outcomes and missing temporal values, sets `risk_score_0_100` to null,
+and sets `risk_level` to `UNDETERMINED`. No weights, thresholds, calibrated
+probability claims, or numeric score are defined. Selecting an `Allow` action,
+risk levels, or score requires a separately specified policy and held-out
+evaluation. Recommendations are simulated only; there are no live account
+actions or telecom/banking integrations.
+
+Tests cover rule/model agreement, model-only risk, no-indicator, ambiguity,
+missing evidence, conflicting evidence, deterministic output, and preservation
+of input evidence. Evaluation must continue to expose the synthetic-template
+limitation and the 125 missed `SUSPICIOUS_SIM_REPLACEMENT` cases; this component
+does not change or repair those results.
