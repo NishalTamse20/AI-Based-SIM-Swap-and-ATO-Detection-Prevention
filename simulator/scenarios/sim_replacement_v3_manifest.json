@@ -1,0 +1,250 @@
+{
+  "version": "v3",
+  "description": "Controlled SIM_REPLACEMENT cohorts built from shared slot skeletons. Skeletons (which slots are present and how many events) are label-neutral and shared by both labels within a family; declared intent only chooses event versions. Anchors are shared by both labels. Transactions use PaySim amounts sampled independently of label and type.",
+  "design_assumptions": {
+    "status": "Provisional synthetic design parameters; not empirical rates and not evidence of real-world behaviour.",
+    "assumption_notes": {
+      "p_new_device": "Provisional synthetic assumption: 0.5 (legitimate) vs 0.9 (suspicious). Not an empirical rate. In the approved seed-42 design audit it was the strongest single in-window signal (leave-one-family-out lookup 0.677 predictive, 0.463 negative control)."
+    },
+    "anchor_cases_per_label_per_family": 3,
+    "variant_skeletons_per_family": 7,
+    "skeleton_quotas_per_family": {
+      "recovery": 4,
+      "transaction": 4,
+      "account": 3,
+      "auth_k1": 2,
+      "auth_k2": 2
+    },
+    "presence_per_label_cell_including_anchors": {
+      "device": 10,
+      "login": 10,
+      "recovery": 7,
+      "transaction": 4,
+      "account": 3,
+      "auth": 4
+    },
+    "negative_control_recipe_sources_per_family": {
+      "anchor": 6,
+      "profile_A": 7,
+      "profile_B": 7
+    },
+    "negative_control_profile_parameters": {
+      "profile_A": "legitimate",
+      "profile_B": "suspicious"
+    },
+    "version_probabilities": {
+      "legitimate": {
+        "p_new_device": 0.5,
+        "p_auth_failure": 0.3,
+        "p_new_beneficiary": 0.3,
+        "p_high_risk_transaction": 0.4
+      },
+      "suspicious": {
+        "p_new_device": 0.9,
+        "p_auth_failure": 0.7,
+        "p_new_beneficiary": 0.7,
+        "p_high_risk_transaction": 0.8
+      }
+    }
+  },
+  "anchor_skeleton": {
+    "auth_k": 0,
+    "recovery": true,
+    "account": false,
+    "transaction": false,
+    "device_version": "new"
+  },
+  "ordering_rules": [
+    "The SIM_REPLACEMENT trigger is at T and is the only TELECOM event.",
+    "The device slot is the first event after the trigger.",
+    "Account and transaction slots occur after the first authentication-slot or login-slot event.",
+    "Ordering and timestamps depend only on seed, case_id and slot tokens, never on labels or versions.",
+    "All other events fall within the inclusive window T+1s..T+15:00."
+  ],
+  "risk_account_event": "NEW_BENEFICIARY",
+  "benign_account_event": "PROFILE_CHANGE",
+  "low_risk_transaction_event": "TRANSACTION",
+  "transaction_type_mapping": {
+    "TRANSACTION": "PAYMENT",
+    "TRANSFER": "TRANSFER",
+    "WITHDRAWAL": "CASH_OUT"
+  },
+  "event_categories": {
+    "NEW_DEVICE": "DEVICE",
+    "DEVICE_CHANGE": "DEVICE",
+    "FAILED_LOGIN": "AUTHENTICATION",
+    "MFA_FAILURE": "AUTHENTICATION",
+    "LOGIN": "AUTHENTICATION",
+    "MFA_SUCCESS": "AUTHENTICATION",
+    "PASSWORD_RESET": "RECOVERY",
+    "ACCOUNT_RECOVERY": "RECOVERY",
+    "RECOVERY_CONTACT_CHANGE": "RECOVERY",
+    "NEW_BENEFICIARY": "ACCOUNT",
+    "PROFILE_CHANGE": "ACCOUNT",
+    "TRANSACTION": "TRANSACTION",
+    "TRANSFER": "TRANSACTION",
+    "WITHDRAWAL": "TRANSACTION"
+  },
+  "families": [
+    {
+      "template_family_id": "F01",
+      "device_event": "NEW_DEVICE",
+      "auth_failure_event": "FAILED_LOGIN",
+      "auth_success_event": "LOGIN",
+      "recovery_event": "PASSWORD_RESET",
+      "high_risk_transaction_event": "TRANSFER"
+    },
+    {
+      "template_family_id": "F02",
+      "device_event": "DEVICE_CHANGE",
+      "auth_failure_event": "FAILED_LOGIN",
+      "auth_success_event": "LOGIN",
+      "recovery_event": "ACCOUNT_RECOVERY",
+      "high_risk_transaction_event": "TRANSFER"
+    },
+    {
+      "template_family_id": "F03",
+      "device_event": "NEW_DEVICE",
+      "auth_failure_event": "MFA_FAILURE",
+      "auth_success_event": "LOGIN",
+      "recovery_event": "RECOVERY_CONTACT_CHANGE",
+      "high_risk_transaction_event": "TRANSFER"
+    },
+    {
+      "template_family_id": "F04",
+      "device_event": "DEVICE_CHANGE",
+      "auth_failure_event": "MFA_FAILURE",
+      "auth_success_event": "LOGIN",
+      "recovery_event": "PASSWORD_RESET",
+      "high_risk_transaction_event": "TRANSFER"
+    },
+    {
+      "template_family_id": "F05",
+      "device_event": "NEW_DEVICE",
+      "auth_failure_event": "FAILED_LOGIN",
+      "auth_success_event": "MFA_SUCCESS",
+      "recovery_event": "ACCOUNT_RECOVERY",
+      "high_risk_transaction_event": "TRANSFER"
+    },
+    {
+      "template_family_id": "F06",
+      "device_event": "DEVICE_CHANGE",
+      "auth_failure_event": "FAILED_LOGIN",
+      "auth_success_event": "MFA_SUCCESS",
+      "recovery_event": "RECOVERY_CONTACT_CHANGE",
+      "high_risk_transaction_event": "WITHDRAWAL"
+    },
+    {
+      "template_family_id": "F07",
+      "device_event": "NEW_DEVICE",
+      "auth_failure_event": "MFA_FAILURE",
+      "auth_success_event": "MFA_SUCCESS",
+      "recovery_event": "PASSWORD_RESET",
+      "high_risk_transaction_event": "WITHDRAWAL"
+    },
+    {
+      "template_family_id": "F08",
+      "device_event": "DEVICE_CHANGE",
+      "auth_failure_event": "MFA_FAILURE",
+      "auth_success_event": "MFA_SUCCESS",
+      "recovery_event": "ACCOUNT_RECOVERY",
+      "high_risk_transaction_event": "WITHDRAWAL"
+    },
+    {
+      "template_family_id": "F09",
+      "device_event": "NEW_DEVICE",
+      "auth_failure_event": "FAILED_LOGIN",
+      "auth_success_event": "LOGIN",
+      "recovery_event": "RECOVERY_CONTACT_CHANGE",
+      "high_risk_transaction_event": "WITHDRAWAL"
+    },
+    {
+      "template_family_id": "F10",
+      "device_event": "DEVICE_CHANGE",
+      "auth_failure_event": "FAILED_LOGIN",
+      "auth_success_event": "LOGIN",
+      "recovery_event": "PASSWORD_RESET",
+      "high_risk_transaction_event": "WITHDRAWAL"
+    },
+    {
+      "template_family_id": "F11",
+      "device_event": "NEW_DEVICE",
+      "auth_failure_event": "MFA_FAILURE",
+      "auth_success_event": "LOGIN",
+      "recovery_event": "ACCOUNT_RECOVERY",
+      "high_risk_transaction_event": "WITHDRAWAL"
+    },
+    {
+      "template_family_id": "F12",
+      "device_event": "DEVICE_CHANGE",
+      "auth_failure_event": "MFA_FAILURE",
+      "auth_success_event": "LOGIN",
+      "recovery_event": "RECOVERY_CONTACT_CHANGE",
+      "high_risk_transaction_event": "WITHDRAWAL"
+    },
+    {
+      "template_family_id": "F13",
+      "device_event": "NEW_DEVICE",
+      "auth_failure_event": "FAILED_LOGIN",
+      "auth_success_event": "MFA_SUCCESS",
+      "recovery_event": "PASSWORD_RESET",
+      "high_risk_transaction_event": "WITHDRAWAL"
+    },
+    {
+      "template_family_id": "F14",
+      "device_event": "DEVICE_CHANGE",
+      "auth_failure_event": "FAILED_LOGIN",
+      "auth_success_event": "MFA_SUCCESS",
+      "recovery_event": "ACCOUNT_RECOVERY",
+      "high_risk_transaction_event": "WITHDRAWAL"
+    },
+    {
+      "template_family_id": "F15",
+      "device_event": "NEW_DEVICE",
+      "auth_failure_event": "MFA_FAILURE",
+      "auth_success_event": "MFA_SUCCESS",
+      "recovery_event": "RECOVERY_CONTACT_CHANGE",
+      "high_risk_transaction_event": "WITHDRAWAL"
+    },
+    {
+      "template_family_id": "F16",
+      "device_event": "DEVICE_CHANGE",
+      "auth_failure_event": "MFA_FAILURE",
+      "auth_success_event": "MFA_SUCCESS",
+      "recovery_event": "PASSWORD_RESET",
+      "high_risk_transaction_event": "TRANSFER"
+    },
+    {
+      "template_family_id": "F17",
+      "device_event": "NEW_DEVICE",
+      "auth_failure_event": "FAILED_LOGIN",
+      "auth_success_event": "LOGIN",
+      "recovery_event": "ACCOUNT_RECOVERY",
+      "high_risk_transaction_event": "TRANSFER"
+    },
+    {
+      "template_family_id": "F18",
+      "device_event": "DEVICE_CHANGE",
+      "auth_failure_event": "FAILED_LOGIN",
+      "auth_success_event": "LOGIN",
+      "recovery_event": "RECOVERY_CONTACT_CHANGE",
+      "high_risk_transaction_event": "TRANSFER"
+    },
+    {
+      "template_family_id": "F19",
+      "device_event": "NEW_DEVICE",
+      "auth_failure_event": "MFA_FAILURE",
+      "auth_success_event": "LOGIN",
+      "recovery_event": "PASSWORD_RESET",
+      "high_risk_transaction_event": "TRANSFER"
+    },
+    {
+      "template_family_id": "F20",
+      "device_event": "DEVICE_CHANGE",
+      "auth_failure_event": "MFA_FAILURE",
+      "auth_success_event": "LOGIN",
+      "recovery_event": "ACCOUNT_RECOVERY",
+      "high_risk_transaction_event": "TRANSFER"
+    }
+  ]
+}

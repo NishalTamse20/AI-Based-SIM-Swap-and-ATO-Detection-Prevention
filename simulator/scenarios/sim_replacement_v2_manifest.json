@@ -1,0 +1,41 @@
+{
+  "manifest_version": "2.0",
+  "purpose": "Controlled SIM_REPLACEMENT negative-control and predictive data-generation recipes. This is synthetic design metadata, not a claim of generalization.",
+  "families": [
+    {"template_family_id":"F01","legitimate":["NEW_DEVICE","FAILED_LOGIN","PASSWORD_RESET","LOGIN"],"suspicious":["FAILED_LOGIN","NEW_DEVICE","ACCOUNT_RECOVERY","LOGIN"]},
+    {"template_family_id":"F02","legitimate":["DEVICE_CHANGE","MFA_FAILURE","ACCOUNT_RECOVERY","LOGIN"],"suspicious":["MFA_FAILURE","NEW_DEVICE","PASSWORD_RESET","LOGIN"]},
+    {"template_family_id":"F03","legitimate":["NEW_DEVICE","FAILED_LOGIN","RECOVERY_CONTACT_CHANGE","LOGIN"],"suspicious":["FAILED_LOGIN","DEVICE_CHANGE","PASSWORD_RESET","LOGIN"]},
+    {"template_family_id":"F04","legitimate":["DEVICE_CHANGE","FAILED_LOGIN","PASSWORD_RESET","MFA_SUCCESS"],"suspicious":["FAILED_LOGIN","NEW_DEVICE","PASSWORD_RESET","MFA_SUCCESS"]},
+    {"template_family_id":"F05","legitimate":["NEW_DEVICE","MFA_FAILURE","ACCOUNT_RECOVERY","PASSWORD_CHANGE"],"suspicious":["MFA_FAILURE","DEVICE_CHANGE","PASSWORD_RESET","PASSWORD_CHANGE"]},
+    {"template_family_id":"F06","legitimate":["DEVICE_CHANGE","FAILED_LOGIN","RECOVERY_CONTACT_CHANGE","MFA_SUCCESS"],"suspicious":["FAILED_LOGIN","NEW_DEVICE","ACCOUNT_RECOVERY","MFA_SUCCESS"]},
+    {"template_family_id":"F07","legitimate":["NEW_DEVICE","FAILED_LOGIN","PASSWORD_RESET","NEW_BENEFICIARY"],"suspicious":["FAILED_LOGIN","DEVICE_CHANGE","ACCOUNT_RECOVERY","PROFILE_CHANGE"]},
+    {"template_family_id":"F08","legitimate":["DEVICE_CHANGE","MFA_FAILURE","ACCOUNT_RECOVERY","PROFILE_CHANGE"],"suspicious":["MFA_FAILURE","NEW_DEVICE","PASSWORD_RESET","NEW_BENEFICIARY"]},
+    {"template_family_id":"F09","legitimate":["NEW_DEVICE","FAILED_LOGIN","RECOVERY_CONTACT_CHANGE","NEW_BENEFICIARY"],"suspicious":["FAILED_LOGIN","DEVICE_CHANGE","RECOVERY_CONTACT_CHANGE","PROFILE_CHANGE"]},
+    {"template_family_id":"F10","legitimate":["DEVICE_CHANGE","FAILED_LOGIN","PASSWORD_RESET","PROFILE_CHANGE"],"suspicious":["FAILED_LOGIN","NEW_DEVICE","ACCOUNT_RECOVERY","NEW_BENEFICIARY"]},
+    {"template_family_id":"F11","legitimate":["NEW_DEVICE","MFA_FAILURE","ACCOUNT_RECOVERY","LOGIN"],"suspicious":["MFA_FAILURE","DEVICE_CHANGE","RECOVERY_CONTACT_CHANGE","PASSWORD_CHANGE"]},
+    {"template_family_id":"F12","legitimate":["DEVICE_CHANGE","MFA_FAILURE","PASSWORD_RESET","LOGIN"],"suspicious":["MFA_FAILURE","NEW_DEVICE","RECOVERY_CONTACT_CHANGE","PASSWORD_CHANGE"]},
+    {"template_family_id":"F13","legitimate":["NEW_DEVICE","FAILED_LOGIN","RECOVERY_CONTACT_CHANGE","MFA_SUCCESS"],"suspicious":["FAILED_LOGIN","DEVICE_CHANGE","ACCOUNT_RECOVERY","MFA_SUCCESS"]},
+    {"template_family_id":"F14","legitimate":["DEVICE_CHANGE","FAILED_LOGIN","RECOVERY_CONTACT_CHANGE","PASSWORD_CHANGE"],"suspicious":["FAILED_LOGIN","NEW_DEVICE","RECOVERY_CONTACT_CHANGE","PASSWORD_CHANGE"]},
+    {"template_family_id":"F15","legitimate":["NEW_DEVICE","MFA_FAILURE","PASSWORD_RESET","PROFILE_CHANGE"],"suspicious":["MFA_FAILURE","DEVICE_CHANGE","ACCOUNT_RECOVERY","NEW_BENEFICIARY"]},
+    {"template_family_id":"F16","legitimate":["DEVICE_CHANGE","MFA_FAILURE","RECOVERY_CONTACT_CHANGE","NEW_BENEFICIARY"],"suspicious":["MFA_FAILURE","NEW_DEVICE","ACCOUNT_RECOVERY","PROFILE_CHANGE"]},
+    {"template_family_id":"F17","legitimate":["NEW_DEVICE","FAILED_LOGIN","PASSWORD_RESET","PASSWORD_CHANGE"],"suspicious":["FAILED_LOGIN","DEVICE_CHANGE","ACCOUNT_RECOVERY","LOGIN"]},
+    {"template_family_id":"F18","legitimate":["DEVICE_CHANGE","FAILED_LOGIN","ACCOUNT_RECOVERY","NEW_BENEFICIARY"],"suspicious":["FAILED_LOGIN","NEW_DEVICE","RECOVERY_CONTACT_CHANGE","PROFILE_CHANGE"]},
+    {"template_family_id":"F19","legitimate":["NEW_DEVICE","MFA_FAILURE","RECOVERY_CONTACT_CHANGE","LOGIN"],"suspicious":["MFA_FAILURE","DEVICE_CHANGE","PASSWORD_RESET","PROFILE_CHANGE"]},
+    {"template_family_id":"F20","legitimate":["DEVICE_CHANGE","MFA_FAILURE","PASSWORD_RESET","NEW_BENEFICIARY"],"suspicious":["MFA_FAILURE","NEW_DEVICE","RECOVERY_CONTACT_CHANGE","NEW_BENEFICIARY"]}
+  ],
+  "event_definitions": {
+    "NEW_DEVICE":{"event_category":"DEVICE","status":"SUCCESS","device_role":"new"},
+    "DEVICE_CHANGE":{"event_category":"DEVICE","status":"SUCCESS","device_role":"new"},
+    "FAILED_LOGIN":{"event_category":"AUTHENTICATION","status":"FAILURE","device_role":"new"},
+    "MFA_FAILURE":{"event_category":"AUTHENTICATION","status":"FAILURE","device_role":"new"},
+    "LOGIN":{"event_category":"AUTHENTICATION","status":"SUCCESS","device_role":"new"},
+    "MFA_SUCCESS":{"event_category":"AUTHENTICATION","status":"SUCCESS","device_role":"new"},
+    "PASSWORD_CHANGE":{"event_category":"AUTHENTICATION","status":"SUCCESS","device_role":"new"},
+    "PASSWORD_RESET":{"event_category":"RECOVERY","status":"SUCCESS","device_role":"new"},
+    "ACCOUNT_RECOVERY":{"event_category":"RECOVERY","status":"SUCCESS","device_role":"new"},
+    "RECOVERY_CONTACT_CHANGE":{"event_category":"RECOVERY","status":"SUCCESS","device_role":"new"},
+    "NEW_BENEFICIARY":{"event_category":"ACCOUNT","status":"SUCCESS","device_role":"new"},
+    "PROFILE_CHANGE":{"event_category":"ACCOUNT","status":"SUCCESS","device_role":"new"}
+  },
+  "near_duplicate_review": "All 40 recipes were reviewed after normalizing away event order: no two recipes in different families share the same event-type multiset. Recipe variants remain grouped by template_family_id. This structural check cannot guarantee absence of every semantic near-duplicate."
+}

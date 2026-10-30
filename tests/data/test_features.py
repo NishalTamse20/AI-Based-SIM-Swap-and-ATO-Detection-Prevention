@@ -67,6 +67,21 @@ def test_label_and_pay_sim_flag_changes_do_not_change_features(tmp_path, paysim_
     ]
 
 
+def test_unlabelled_case_has_no_target_and_identical_features(tmp_path, paysim_fixture):
+    _, events, profiles = _dataset(tmp_path, paysim_fixture)
+    labelled = build_feature_rows(events, profiles)
+    unlabelled_events = deepcopy(events)
+    for event in unlabelled_events:
+        event["ato_label"] = None
+        event["scenario_type"] = None
+    unlabelled = build_feature_rows(unlabelled_events, profiles)
+    assert all(row[TARGET_COLUMN] is None for row in unlabelled)
+    assert all(row[TARGET_COLUMN] in (0, 1) for row in labelled)
+    assert [{key: row[key] for key in (*IDENTIFIER_COLUMNS, *FEATURE_COLUMNS)} for row in labelled] == [
+        {key: row[key] for key in (*IDENTIFIER_COLUMNS, *FEATURE_COLUMNS)} for row in unlabelled
+    ]
+
+
 def test_post_cutoff_events_do_not_change_prediction_features(tmp_path, paysim_fixture):
     _, events, profiles = _dataset(tmp_path, paysim_fixture)
     target_user = next(event["user_id"] for event in events if event["scenario_type"] == "SUSPICIOUS_SIM_REPLACEMENT")

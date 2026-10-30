@@ -153,9 +153,15 @@ def build_feature_rows(
             "baseline_transaction_amount_min": _decimal(profile.get("transaction_amount_min")),
             "baseline_transaction_amount_max": _decimal(profile.get("transaction_amount_max")),
             "baseline_successful_login_count": int(profile["successful_login_count"]),
-            TARGET_COLUMN: int(trigger["ato_label"]),
+            TARGET_COLUMN: _target(trigger),
         })
     return output
+
+
+def _target(trigger: dict[str, Any]) -> int | None:
+    """Return the evaluation target, or None for an unlabelled case being assessed."""
+    label = trigger.get("ato_label")
+    return None if label is None or label == "" else int(label)
 
 
 def generate_features(

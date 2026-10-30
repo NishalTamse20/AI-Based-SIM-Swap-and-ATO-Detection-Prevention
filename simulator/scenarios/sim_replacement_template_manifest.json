@@ -1,0 +1,47 @@
+{
+  "manifest_version": 1,
+  "purpose": "Controlled SIM_REPLACEMENT cohort templates; not a research result or real-world data.",
+  "families": [
+    {
+      "template_family_id": "SIM_REPLACEMENT_FAMILY_01",
+      "cases": [
+        {"case_id": "SIMREP-F01-L", "scenario_type": "LEGITIMATE_SIM_REPLACEMENT", "ato_label": 0},
+        {"case_id": "SIMREP-F01-S", "scenario_type": "SUSPICIOUS_SIM_REPLACEMENT", "ato_label": 1}
+      ],
+      "post_trigger_events": [
+        {"offset_minutes": 3, "event_category": "DEVICE", "event_type": "NEW_DEVICE", "status": "EXPECTED", "device_role": "new"},
+        {"offset_minutes": 6, "event_category": "AUTHENTICATION", "event_type": "FAILED_LOGIN", "status": "FAILURE", "device_role": "new"},
+        {"offset_minutes": 9, "event_category": "RECOVERY", "event_type": "PASSWORD_RESET", "status": "SUCCESS", "device_role": "new"},
+        {"offset_minutes": 14, "event_category": "AUTHENTICATION", "event_type": "LOGIN", "status": "SUCCESS", "device_role": "new"}
+      ]
+    },
+    {
+      "template_family_id": "SIM_REPLACEMENT_FAMILY_02",
+      "cases": [
+        {"case_id": "SIMREP-F02-L", "scenario_type": "LEGITIMATE_SIM_REPLACEMENT", "ato_label": 0},
+        {"case_id": "SIMREP-F02-S", "scenario_type": "SUSPICIOUS_SIM_REPLACEMENT", "ato_label": 1}
+      ],
+      "post_trigger_events": [
+        {"offset_minutes": 2, "event_category": "DEVICE", "event_type": "NEW_DEVICE", "status": "EXPECTED", "device_role": "new"},
+        {"offset_minutes": 5, "event_category": "AUTHENTICATION", "event_type": "FAILED_LOGIN", "status": "FAILURE", "device_role": "new"},
+        {"offset_minutes": 8, "event_category": "AUTHENTICATION", "event_type": "FAILED_LOGIN", "status": "FAILURE", "device_role": "new"},
+        {"offset_minutes": 11, "event_category": "RECOVERY", "event_type": "PASSWORD_RESET", "status": "SUCCESS", "device_role": "new"},
+        {"offset_minutes": 15, "event_category": "AUTHENTICATION", "event_type": "LOGIN", "status": "SUCCESS", "device_role": "new"}
+      ]
+    },
+    {
+      "template_family_id": "SIM_REPLACEMENT_FAMILY_03",
+      "cases": [
+        {"case_id": "SIMREP-F03-L", "scenario_type": "LEGITIMATE_SIM_REPLACEMENT", "ato_label": 0},
+        {"case_id": "SIMREP-F03-S", "scenario_type": "SUSPICIOUS_SIM_REPLACEMENT", "ato_label": 1}
+      ],
+      "post_trigger_events": [
+        {"offset_minutes": 4, "event_category": "DEVICE", "event_type": "NEW_DEVICE", "status": "EXPECTED", "device_role": "new"},
+        {"offset_minutes": 7, "event_category": "AUTHENTICATION", "event_type": "FAILED_LOGIN", "status": "FAILURE", "device_role": "new"},
+        {"offset_minutes": 10, "event_category": "RECOVERY", "event_type": "ACCOUNT_RECOVERY", "status": "SUCCESS", "device_role": "new"},
+        {"offset_minutes": 12, "event_category": "RECOVERY", "event_type": "PASSWORD_RESET", "status": "SUCCESS", "device_role": "new"},
+        {"offset_minutes": 15, "event_category": "AUTHENTICATION", "event_type": "LOGIN", "status": "SUCCESS", "device_role": "new"}
+      ]
+    }
+  ]
+}

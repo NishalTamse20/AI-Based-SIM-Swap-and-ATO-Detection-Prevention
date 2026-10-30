@@ -106,3 +106,41 @@ missing evidence, conflicting evidence, deterministic output, and preservation
 of input evidence. Evaluation must continue to expose the synthetic-template
 limitation and the 125 missed `SUSPICIOUS_SIM_REPLACEMENT` cases; this component
 does not change or repair those results.
+
+## Phase 11.2 — Scoring decision and validation plan
+
+**Decision:** do not produce a 0–100 score or Low/Medium/High level from the
+current evidence. Keep `risk_score_0_100` null and `risk_level` as
+`UNDETERMINED`.
+
+The saved Random Forest probability outputs have not been calibrated. The
+unseen-scenario evaluation holds out eight label-pure scenario types, so
+per-fold ROC-AUC is undefined; pooled probabilities come from separately
+trained fold models and are not established as comparable or calibrated. The
+Phase 10.3 policy's perfect determinate-only metrics cover 500 of 1,000 rows
+(50% coverage) and do not validate a continuous score. The temporal model's
+125 false negatives on `SUSPICIOUS_SIM_REPLACEMENT` also remain material.
+These results are synthetic and show scenario-template dependence.
+
+Before any score is implemented, resolve and document:
+
+- Whether a score means calibrated ATO probability or a non-probabilistic
+  ordinal index. The existing results support neither a calibrated probability
+  mapping nor additive rule/model/temporal points.
+- The training-only method for producing that quantity and the independent
+  validation design. Current label-pure leave-one-scenario-type-out folds do
+  not provide per-fold mixed-class calibration evidence.
+- If levels are retained, the process for choosing and freezing Low/Medium/
+  High boundaries and their response mapping before final evaluation.
+- How ambiguous, missing, conflicting, and no-indicator outcomes remain
+  explicit without being converted to legitimate activity.
+
+Validation must use a prespecified score meaning and method, fit any
+calibration only on training data, and assess it on an independent held-out
+set with sufficient class and scenario variation. Report calibration
+reliability and discrimination only where mathematically supported, along
+with coverage and scenario-level errors. Keep all 125
+`SUSPICIOUS_SIM_REPLACEMENT` cases visible. Freeze any level boundaries and
+response policy before evaluation; do not choose them to improve the reported
+test result. Until those decisions and evidence exist, score and level outputs
+remain null/undetermined and no real-world validity is implied.
