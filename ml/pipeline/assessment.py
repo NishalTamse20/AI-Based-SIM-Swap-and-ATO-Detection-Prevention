@@ -59,7 +59,17 @@ def _validate_case(events: list[dict[str, Any]]) -> dict[str, Any]:
         raise ValueError("a case needs at least its telecom trigger and pre-trigger history")
     if len({event.get("user_id") for event in events}) != 1 or len({event.get("account_id") for event in events}) != 1:
         raise ValueError("a case must contain exactly one user_id and one account_id")
+    # event_id is the schema's unique event identifier; within one case a repeated id is a
+    # duplicate record and would be double-counted by the baseline, so it is rejected.
+    seen_event_ids: set[str] = set()
     for event in events:
+        for field in ("event_id", "timestamp"):
+            if not str(event.get(field) or "").strip():
+                raise ValueError(f"event {event.get('event_id')!r} is missing required field {field!r}")
+        event_id = str(event["event_id"])
+        if event_id in seen_event_ids:
+            raise ValueError(f"duplicate event_id {event_id!r}: each event must appear once in a case")
+        seen_event_ids.add(event_id)
         category, event_type = event.get("event_category"), event.get("event_type")
         if event_type not in CATEGORY_EVENT_TYPES.get(category, ()):
             raise ValueError(f"invalid event_type {category}/{event_type} in {event.get('event_id')}")

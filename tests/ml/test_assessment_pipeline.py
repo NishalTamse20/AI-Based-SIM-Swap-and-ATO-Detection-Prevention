@@ -151,11 +151,26 @@ def test_assessment_is_deterministic(events_by_user, reference):
     ("bad_event", "invalid event_type"),
     ("two_users", "exactly one user_id"),
     ("no_history", "no pre-trigger history"),
+    ("missing_timestamp", "missing required field 'timestamp'"),
+    ("blank_timestamp", "missing required field 'timestamp'"),
+    ("missing_event_id", "missing required field 'event_id'"),
+    ("duplicate_history_event", "duplicate event_id 'EVT-000001-01'"),
+    ("duplicate_trigger_record", "duplicate event_id"),
 ])
 def test_invalid_cases_are_rejected(events_by_user, mutation, message):
     rows = copy.deepcopy(events_by_user["USR-000001"])
     trigger = next(r for r in rows if r["event_category"] == "TELECOM")
-    if mutation == "two_triggers":
+    if mutation == "missing_timestamp":
+        del rows[0]["timestamp"]
+    elif mutation == "blank_timestamp":
+        rows[0]["timestamp"] = "  "
+    elif mutation == "missing_event_id":
+        rows[0]["event_id"] = ""
+    elif mutation == "duplicate_history_event":
+        rows.append(dict(rows[0]))
+    elif mutation == "duplicate_trigger_record":
+        rows.append(dict(trigger))
+    elif mutation == "two_triggers":
         rows.append({**trigger, "event_id": "EVT-DUP"})
     elif mutation == "bad_event":
         rows.append({**trigger, "event_id": "EVT-BAD", "event_category": "ACCOUNT", "event_type": "BENEFICIARY_ADDED"})
@@ -165,6 +180,16 @@ def test_invalid_cases_are_rejected(events_by_user, mutation, message):
         rows = [r for r in rows if r["timestamp"] >= trigger["timestamp"]]
     with pytest.raises(ValueError, match=message):
         assess_case(rows)
+
+
+def test_distinct_events_are_still_counted_and_valid_cases_unchanged(events_by_user):
+    rows = events_by_user["USR-000001"]
+    base = assess_case(rows)
+    assert assess_case(copy.deepcopy(rows)) == base
+    history_row = rows[0]
+    distinct = [*rows, {**history_row, "event_id": "EVT-000001-EXTRA"}]
+    assert assess_case(distinct)["baseline_profile"]["baseline_event_count"] == \
+        base["baseline_profile"]["baseline_event_count"] + 1
 
 
 def test_current_behaviour_on_legacy_templates(events_by_user, modelled_test_users):

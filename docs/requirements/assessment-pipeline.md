@@ -56,10 +56,9 @@ No legitimate-labelled test case received a simulated action. Suspicious SIM rep
 2. The initial demo is restricted to the 200 Phase 8 test-split users (listed in the reference model metadata).
 3. `assess_case` keeps its internal return structure (`response`, `feature_snapshot`, `temporal_evidence`, `baseline_profile`). A future API should expose only the fields it needs.
 
-## Known input-validation gaps (follow-up before accepting external input)
+## Input validation
 
-- An event missing `timestamp` is rejected with `KeyError` rather than a clear `ValueError`.
-- Duplicate `event_id` values are not rejected; a duplicated history row would be counted twice in the baseline.
+Every event must have a non-empty `event_id` and `timestamp`; otherwise `ValueError` names the missing field. `event_id` is the schema's unique event identifier (the dataset validator already rejects duplicates dataset-wide), so a repeated `event_id` within a case is rejected as a duplicate record and cannot be double-counted by the baseline. Distinct events with different ids are still counted normally.
 
 ## Limitations
 
