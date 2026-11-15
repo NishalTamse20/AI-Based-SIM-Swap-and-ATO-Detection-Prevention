@@ -1,0 +1,12 @@
+# Demo API dependencies. The four ML pins must match ml/artifacts/phase8_reference_model.json,
+# otherwise load_reference_model refuses to load the reference model.
+numpy==2.4.6
+pandas==3.0.6
+scikit-learn==1.9.1
+joblib==1.6.0
+
+fastapi==0.162.0
+uvicorn==0.54.0
+sqlalchemy==2.1.6
+psycopg[binary]==3.3.6
+httpx==0.28.1
